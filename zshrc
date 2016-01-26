@@ -58,7 +58,7 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
-source $DOTFILES/upgrade_dotfiles.sh
+python $DOTFILES/upgrade_dotfiles
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8

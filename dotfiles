@@ -47,7 +47,7 @@ def main():
 
         print "Updating submodules..."
 
-        subprocess.check_call(["git", "submodules", "update"])
+        subprocess.check_call(["git", "submodule", "update"])
 
         print "...Done!"
 
@@ -60,25 +60,51 @@ def main():
     else:
         print "Init pathogen..."
 
-        curdir = os.environ['DOTFILES']
+        curdir = os.environ['DOTFILES'] if os.environ['DOTFILES'] else os.path.join(os.environ['HOME'], ".dotfiles")
         updatePathogen(curdir)
 
         print "...Done!"
 
         print "Init submodules..."
 
-        subprocess.check_call(["git", "submodules", "init"])
+        subprocess.check_call(["git", "submodule", "init"])
 
         print "...Done!"
 
-        print "Symlink dotfiles..."
+        print "Symlinking dotfiles..."
 
         homedir = os.environ['HOME']
+        exclude = ["dotfiles", "upgrade_dotfiles"]
+
         files = [f for f in os.listdir(curdir) if f[0] != "."]
         for f in files:
-            dst = "." + f
-            os.symlink(os.path.join(curdir, f), os.path.join(homedir, dst))
+            if f not in exclude:
+                fpos = os.path.join(curdir, f)
+                ftype = ""
+                while True:
+                    if os.path.isfile(fpos) == True or os.path.islink(fpos) == True:
+                        ftype = "file"
+                        print "Substituting file: " + f
+                        input = raw_input("Would you to substitute the existing file/symlink? (y/n) ").lower()
+                    elif os.path.isdir(fpos) == True:
+                        ftype = "dir"
+                        print "Substituting directory: " + f
+                        input = raw_input("Would you to substitute the existing directory? (y/n) ").lower()
+                    else :
+                        raise Exception('The existing filetype is unknown.')
 
+                    if input == "n":
+                        break
+                    elif input == "y":
+                        if ftype == "file":
+                            os.remove(fpos)
+
+                        if ftype == "dir":
+                            os.rmtree(fpos)
+
+                        dst = "." + f
+                        os.symlink(fpos, os.path.join(homedir, dst))
+                        break
 
         print "...Done!"
 
