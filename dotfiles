@@ -1,0 +1,86 @@
+#!/usr/bin/env python
+import subprocess
+import optparse
+import urllib
+import os
+
+def downloadFile(url, cwd):
+    target = urllib.URLopener()
+    target.retrieve(url, cwd)
+
+def checkCreateDir(dir):
+    if not os.path.exists(dir):
+        os.makedirs(dir)
+
+def updatePathogen(curdir):
+    pathogendir = curdir + "/vim/autoload/"
+    pathogenurl = "https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim"
+
+    checkCreateDir(pathogendir)
+    downloadFile(pathogenurl, pathogendir + "/pathogen.vim")
+
+def main():
+    parser = optparse.OptionParser()
+
+    parser.add_option("-u", "--update",
+                  dest="update", default=True,
+                  action="store_true",
+                  help="updates all the dotfiles [default]")
+
+    parser.add_option("-s", "--setup",
+                  dest="update",
+                  action="store_false",
+                  help="set symlinks in home directory")
+
+    (opts, args) = parser.parse_args()
+
+    if len(args) > 0:
+        parser.error("Incorrect usage. Check help with --help.")
+
+    if opts.update:
+        print "Updating pathogen..."
+
+        curdir = os.environ['DOTFILES']
+        updatePathogen(curdir)
+
+        print "...Done!"
+
+        print "Updating submodules..."
+
+        subprocess.check_call(["git", "submodules", "update"])
+
+        print "...Done!"
+
+        print "Updating main..."
+
+        subprocess.check_call(["git", "pull"])
+
+        print "...Done!"
+
+    else:
+        print "Init pathogen..."
+
+        curdir = os.environ['DOTFILES']
+        updatePathogen(curdir)
+
+        print "...Done!"
+
+        print "Init submodules..."
+
+        subprocess.check_call(["git", "submodules", "init"])
+
+        print "...Done!"
+
+        print "Symlink dotfiles..."
+
+        homedir = os.environ['HOME']
+        files = [f for f in os.listdir(curdir) if f[0] != "."]
+        for f in files:
+            dst = "." + f
+            os.symlink(os.path.join(curdir, f), os.path.join(homedir, dst))
+
+
+        print "...Done!"
+
+if __name__ == "__main__":
+    main()
