@@ -6,7 +6,7 @@ export DOTFILES=$HOME/.dotfiles
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="minimal"
+ZSH_THEME="simple"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -54,14 +54,14 @@ plugins=(git brew npm bower osx python virtualenv atom apm virtualenvwrapper col
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH=$HOME/bin:$HOME/.bin:/usr/local/bin:$PATH
 export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
-python $DOTFILES/upgrade_dotfiles
+#python $DOTFILES/bin/upgrade_dotfiles
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -85,6 +85,14 @@ python $DOTFILES/upgrade_dotfiles
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-if [ -f "$HOME/.colors.zsh" ]; then
-  source $HOME/.colors.zsh
+if [[ -n $DOTFILES/bin/upgrade_dotfiles ]] then
+   $DOTFILES/bin/upgrade_dotfiles
+fi
+
+if [ -f "$DOTFILES/colors.zsh" ]; then
+  source $DOTFILES/colors.zsh
+fi
+
+if [ -f $DOTFILES/aliases.zsh ]; then
+    source $DOTFILES/aliases.zsh
 fi
