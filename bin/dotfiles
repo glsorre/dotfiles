@@ -47,7 +47,8 @@ def symlinkFolder(orig, dest, convert2DotFiles = False, filterList = [], filterE
 
     if len(filterList) > 0:
         for f in filterList:
-            origList.remove(f)
+		if f in origList:
+            	    origList.remove(f)
 
     if len(filterExt) > 0:
         for f in origList:
@@ -61,10 +62,6 @@ def symlinkFolder(orig, dest, convert2DotFiles = False, filterList = [], filterE
         existingFiles = diffDirectories(origList, fakeDotFiles(destList))
     else:
         existingFiles = diffDirectories(origList, destList)
-
-    print '---------------------------------'
-    print existingFiles
-    print '---------------------------------'
 
     for f in origList:
         if origList.index(f) not in existingFiles[0]:
@@ -91,7 +88,6 @@ def symlinkFolder(orig, dest, convert2DotFiles = False, filterList = [], filterE
             elif input == "y":
                 try:
                     if os.path.islink(curPos) or os.path.isfile(curPos):
-                        print "FILEEEEEEEEE"
                         os.remove(curPos)
                     else:
                         shutil.rmtree(curPos)
@@ -133,7 +129,7 @@ def main():
 
         print "Updating git submodules..."
 
-        subprocess.check_call(["git", "submodule", "update"])
+        subprocess.check_call(["git", "submodule", "update", "--recursive"])
 
         print "...Done!"
 
@@ -153,7 +149,7 @@ def main():
 
         print "Init git submodules..."
 
-        subprocess.check_call(["git", "submodule", "init"])
+        subprocess.check_call(["git", "submodule", "update", "--init", "--recursive"])
 
         print "...Done!"
 
