@@ -85,9 +85,9 @@ export LANG=en_US.UTF-8
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-if [[ -n $DOTFILES/bin/upgrade_dotfiles ]] then
-   $DOTFILES/bin/upgrade_dotfiles
-fi
+#if [[ -n $DOTFILES/bin/upgrade_dotfiles ]] then
+#   $DOTFILES/bin/upgrade_dotfiles
+#fi
 
 if [ -f "$DOTFILES/colors.zsh" ]; then
   source $DOTFILES/colors.zsh

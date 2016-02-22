@@ -161,6 +161,13 @@ def main():
 
         print "...Done!"
 
+        print "Symlinking lauch daemon updating job..."
+
+        os.symlink(os.path.join(os.environ['DOTFILES'], 'com.rightright.dotfiles.plist'),
+            os.path.join(os.environ['HOME'], 'Library/LaunchAgents/com.rightright.dotfiles.plist'))
+
+        print "...Done!"
+
 if __name__ == "__main__":
     os.chdir(os.environ['DOTFILES'])
     main()
