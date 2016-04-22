@@ -47,8 +47,8 @@ def symlinkFolder(orig, dest, convert2DotFiles = False, filterList = [], filterE
 
     if len(filterList) > 0:
         for f in filterList:
-		if f in origList:
-            	    origList.remove(f)
+            if f in origList:
+                    origList.remove(f)
 
     if len(filterExt) > 0:
         for f in origList:

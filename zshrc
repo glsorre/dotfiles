@@ -50,7 +50,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew npm bower osx python virtualenv atom apm virtualenvwrapper colorize syntax-hilighting vagrant)
+plugins=(git brew npm bower osx python virtualenv atom apm virtualenvwrapper colorize syntax-hilighting vagrant pip)
 
 # User configuration
 
@@ -95,4 +95,11 @@ fi
 
 if [ -f $DOTFILES/aliases.zsh ]; then
     source $DOTFILES/aliases.zsh
+fi
+
+if type "virtualenv_prompt_info" > /dev/null
+then
+	RPROMPT='$(virtualenv_prompt_info)$my_gray%n@%m%{$reset_color%}%'
+else
+	RPROMPT='$my_gray%n@%m%{$reset_color%}%'
 fi
