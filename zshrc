@@ -97,9 +97,15 @@ if [ -f $DOTFILES/aliases.zsh ]; then
     source $DOTFILES/aliases.zsh
 fi
 
+if [ -f $HOME/.iterm2_shell_integration.`basename $SHELL` ]; then
+    source $HOME/.iterm2_shell_integration.`basename $SHELL`
+fi
+
 if type "virtualenv_prompt_info" > /dev/null
 then
 	RPROMPT='$(virtualenv_prompt_info)$my_gray%n@%m%{$reset_color%}%'
 else
 	RPROMPT='$my_gray%n@%m%{$reset_color%}%'
 fi
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
