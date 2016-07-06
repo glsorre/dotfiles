@@ -1,0 +1,11 @@
+[filter "lfs"]
+	smudge = git-lfs smudge %f
+	required = true
+	clean = git-lfs clean %f
+[user]
+	name = Giuseppe Sorrentino
+	email = uhpnou@gmail.com
+[url "https://"]
+	insteadOf = git://
+[push]
+	default = simple
