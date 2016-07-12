@@ -9,3 +9,4 @@
 	insteadOf = git://
 [push]
 	default = simple
+	followTags = true
