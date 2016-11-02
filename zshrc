@@ -50,7 +50,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew npm bower osx python virtualenv atom apm virtualenvwrapper colorize syntax-hilighting vagrant pip fabric)
+plugins=(git brew npm bower osx python virtualenv virtualenvwrapper colorize syntax-hilighting vagrant pip fabric)
 
 # User configuration
 
@@ -103,9 +103,9 @@ fi
 
 if type "virtualenv_prompt_info" > /dev/null
 then
-	RPROMPT='$(virtualenv_prompt_info)$my_gray%n@%m%{$reset_color%}%'
+	# RPROMPT='$(virtualenv_prompt_info)$my_gray%n@%m%{$reset_color%}%'
+    PROMPT='$(virtualenv_prompt_info) '$PROMPT
 else
-	RPROMPT='$my_gray%n@%m%{$reset_color%}%'
+	# RPROMPT='$my_gray%n@%m%{$reset_color%}%'
+    # RPROMPT=''
 fi
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
