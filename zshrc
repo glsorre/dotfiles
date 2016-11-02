@@ -101,11 +101,6 @@ if [ -f $HOME/.iterm2_shell_integration.`basename $SHELL` ]; then
     source $HOME/.iterm2_shell_integration.`basename $SHELL`
 fi
 
-if type "virtualenv_prompt_info" > /dev/null
-then
-	# RPROMPT='$(virtualenv_prompt_info)$my_gray%n@%m%{$reset_color%}%'
-    PROMPT='$(virtualenv_prompt_info) '$PROMPT
-else
-	# RPROMPT='$my_gray%n@%m%{$reset_color%}%'
-    # RPROMPT=''
+if type "virtualenv_prompt_info" > /dev/null ;then
+    export PROMPT='%{$fg[green]%}%~%{$fg_bold[blue]%}$(git_prompt_info)$(virtualenv_prompt_info)%{$reset_color%} '
 fi
