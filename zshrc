@@ -97,6 +97,10 @@ if [ -f $DOTFILES/aliases.zsh ]; then
     source $DOTFILES/aliases.zsh
 fi
 
+if [ -f $HOME/.me.zsh ]; then
+    source $HOME/.me.zsh
+fi
+
 if [ -f $HOME/.iterm2_shell_integration.`basename $SHELL` ]; then
     source $HOME/.iterm2_shell_integration.`basename $SHELL`
 fi
