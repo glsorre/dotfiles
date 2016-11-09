@@ -105,10 +105,6 @@ if [ -f $HOME/.iterm2_shell_integration.`basename $SHELL` ]; then
     source $HOME/.iterm2_shell_integration.`basename $SHELL`
 fi
 
-# if [ -f $HOME/miniconda3/bin/conda ]; then
-#     export PATH=~/miniconda3/bin:"$PATH"
-# fi
-
 if type "virtualenv_prompt_info" > /dev/null ;then
     export PROMPT='%{$fg[green]%}%~%{$fg_bold[blue]%}$(git_prompt_info)$(virtualenv_prompt_info)%{$reset_color%} '
 fi
