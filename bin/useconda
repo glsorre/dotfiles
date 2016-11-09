@@ -1,0 +1,3 @@
+if [ -f $HOME/miniconda3/bin/conda ]; then
+    export PATH=~/miniconda3/bin:"$PATH"
+fi
