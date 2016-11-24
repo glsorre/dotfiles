@@ -53,7 +53,6 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(git brew npm bower osx python virtualenv virtualenvwrapper colorize syntax-hilighting vagrant pip fabric)
 
 # User configuration
-
 export PATH=$HOME/bin:$HOME/.bin:/usr/local/bin:$PATH
 export MANPATH="/usr/local/man:$MANPATH"
 
