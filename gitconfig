@@ -10,3 +10,7 @@
 [push]
 	default = simple
 	followTags = true
+[diff]
+    tool = opendiff
+[difftool]
+    prompt = false
