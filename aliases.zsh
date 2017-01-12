@@ -8,6 +8,7 @@ alias npmout="npm outdated --depth 0 -g"
 alias arduino="/Applications/Arduino.app/Contents/MacOS/JavaApplicationStub"
 alias numFiles='echo $(ls -1 | wc -l)'      # numFiles:     Count of non-hidden files in current dir
 alias cask="brew cask"
+alias gl="gl"
 
 mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and jumps inside
 ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview

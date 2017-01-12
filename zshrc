@@ -50,7 +50,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew npm bower osx python virtualenv virtualenvwrapper colorize syntax-hilighting vagrant pip fabric rbenv)
+plugins=(brew npm bower osx python virtualenv virtualenvwrapper colorize vagrant pip fabric rbenv git)
 
 # User configuration
 export PATH=$HOME/bin:$HOME/.bin:/usr/local/bin:$PATH
