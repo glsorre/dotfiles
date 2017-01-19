@@ -6,12 +6,13 @@
 	<string>com.rightright.dotfiles</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>sh</string>
+		<string>zsh</string>
 		<string>-c</string>
-		<string>dotfiles</string>
-		<string>-u</string>
+		<string>"$HOME/.dotfiles/bin/dotfiles_launchd"</string>
+		<string>>></string>
+		<string>/tmp/turtle2.out</string>
 	</array>
-	<key>RunAtLoad</key>
-	<true/>
+	<key>StartInterval</key>
+	<integer>86400</integer>
 </dict>
 </plist>
