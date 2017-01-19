@@ -9,8 +9,6 @@
 		<string>zsh</string>
 		<string>-c</string>
 		<string>"$HOME/.dotfiles/bin/dotfiles_launchd"</string>
-		<string>>></string>
-		<string>/tmp/turtle2.out</string>
 	</array>
 	<key>StartInterval</key>
 	<integer>86400</integer>
