@@ -50,7 +50,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(brew npm bower osx python virtualenv virtualenvwrapper pyenv colorize vagrant pip fabric rbenv git)
+plugins=(brew npm bower osx python pyenv colorize vagrant pip fabric rbenv git)
 
 # User configuration
 export PATH=$HOME/bin:$HOME/.bin:/usr/local/bin:$PATH
@@ -105,6 +105,13 @@ if [ -f $HOME/.iterm2_shell_integration.`basename $SHELL` ]; then
     source $HOME/.iterm2_shell_integration.`basename $SHELL`
 fi
 
-if [ -n "$(type virtualenv_prompt_info)" ];  then
-    export PROMPT='%{$fg[green]%}%~%{$fg_bold[blue]%}$(git_prompt_info)$(virtualenv_prompt_info)%{$reset_color%} '
-fi
+# if [ -n "$(type virtualenv_prompt_info)" ];  then
+#     export PROMPT='%{$fg[green]%}%~%{$fg_bold[blue]%}$(git_prompt_info)$(virtualenv_prompt_info)%{$reset_color%} '
+# fi
+
+# if [ -f /usr/local/opt/pyenv/shims/virtualenvwrapper.sh ]; then
+#     source /usr/local/opt/pyenv/shims/virtualenvwrapper_lazy.sh
+#     export PROMPT='%{$fg[green]%}%~%{$fg_bold[blue]%}$(git_prompt_info)$(virtualenv_prompt_info)%{$reset_color%} '
+# fi
+
+# if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
