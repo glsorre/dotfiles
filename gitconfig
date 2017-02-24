@@ -17,4 +17,4 @@
 [difftool "opendiff"]
     cmd = /usr/bin/opendiff \"$LOCAL\" \"$REMOTE\" -merge \"$MERGED\" | cat
 [core]
-	excludesfile = /Users/gsorrentino/.gitignore_global
+	excludesfile = ~/.gitignore.global
