@@ -18,3 +18,5 @@
     cmd = /usr/bin/opendiff \"$LOCAL\" \"$REMOTE\" -merge \"$MERGED\" | cat
 [core]
 	excludesfile = ~/.gitignore.global
+[credential]
+	helper = osxkeychain
