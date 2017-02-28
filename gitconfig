@@ -11,12 +11,10 @@
 	default = simple
 	followTags = true
 [diff]
-    tool = opendiff
+	tool = opendiff
 [difftool]
-    prompt = false
+	prompt = false
 [difftool "opendiff"]
-    cmd = /usr/bin/opendiff \"$LOCAL\" \"$REMOTE\" -merge \"$MERGED\" | cat
+	cmd = /usr/bin/opendiff \"$LOCAL\" \"$REMOTE\" -merge \"$MERGED\" | cat
 [core]
-	excludesfile = ~/.gitignore.global
-[credential]
-	helper = osxkeychain
+	excludesfile = ~/.gitignore_global
