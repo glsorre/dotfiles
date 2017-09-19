@@ -53,7 +53,7 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(brew npm bower osx python colorize vagrant pip fabric virtualenv virtualenvwrapper rbenv git aws)
 
 # User configuration
-export PATH=$HOME/bin:$HOME/.bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.bin:/usr/local/bin:/usr/local/opt/python/libexec/bin:$PATH
 export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
