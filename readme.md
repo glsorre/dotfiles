@@ -4,5 +4,5 @@ To install:
 
 To do:
 
-[ ] dotfiles script avoid symlink for launchd plist
-[ ] lint the dotfiles script
+- [ ] dotfiles script avoid symlink for launchd plist
+- [ ] lint the dotfiles script
