@@ -11,10 +11,10 @@
 		<string>"$HOME/.dotfiles/bin/dotfiles_launchd"</string>
 	</array>
 	<key>StartInterval</key>
-	<integer>3600</integer>
-	<!-- <key>StandardErrorPath</key>
-	<string>Users/gsorrentino/tmp/com.rightright.dotfiles.err</string>
+	<integer>7200</integer>
+	<key>StandardErrorPath</key>
+	<string>/tmp/dotfilesupdate.err</string>
 	<key>StandardOutPath</key>
-	<string>Users/gsorrentino/tmp/com.rightright.dotfiles.out</string> -->
+	<string>/tmp/dotfilesupdate.out</string>
 </dict>
 </plist>
