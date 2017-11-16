@@ -19,7 +19,7 @@ zipf () { zip -r "$1".zip "$1" ; }          # zipf:         To create a ZIP arch
 useconda () {
     if [ -f $HOME/anaconda3/bin/conda ]; then
         export OLD_PATH=$PATH
-        export PATH=~/anaconda3/bin:$PATH;
+        export PATH=/usr/local/anaconda3/bin:"$PATH";
         export RPROMPT='[CONDA]';
     fi;
 }
