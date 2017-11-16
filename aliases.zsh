@@ -17,9 +17,9 @@ ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in Ma
 zipf () { zip -r "$1".zip "$1" ; }          # zipf:         To create a ZIP archive of a folder
 
 useconda () {
-    if [ -f $HOME/anaconda3/bin/conda ]; then
+    if [ -f /usr/local/anaconda3/bin/conda ]; then
         export OLD_PATH=$PATH
-        export PATH=/usr/local/anaconda3/bin:"$PATH";
+        export PATH="/usr/local/anaconda3/bin:$PATH";
         export RPROMPT='[CONDA]';
     fi;
 }
