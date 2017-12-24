@@ -9,8 +9,7 @@ alias arduino="/Applications/Arduino.app/Contents/MacOS/JavaApplicationStub"
 alias numFiles='echo $(ls -1 | wc -l)'      # numFiles:     Count of non-hidden files in current dir
 alias cask="brew cask"
 alias gl="gl"
-alias pylint2="python2 -m pylint"
-alias pylint3="python3 -m pylint"
+alias python2="/usr/bin/python"
 
 mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and jumps inside
 ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
