@@ -105,9 +105,13 @@ if [ -f $HOME/.iterm2_shell_integration.`basename $SHELL` ]; then
     source $HOME/.iterm2_shell_integration.`basename $SHELL`
 fi
 
-if [ -n "$(type virtualenv_prompt_info)" ];  then
-    export PROMPT='%{$fg[green]%}%~%{$fg_bold[blue]%}$(git_prompt_info)$(virtualenv_prompt_info)%{$reset_color%} '
-fi
+if [ -f /usr/local/miniconda3/bin/conda ]; then
+    export PATH="/usr/local/miniconda3/bin:$PATH";
+fi;
+
+#if [ -n "$(type virtualenv_prompt_info)" ];  then
+#    export PROMPT='%{$fg[green]%}%~%{$fg_bold[blue]%}$(git_prompt_info)$(virtualenv_prompt_info)%{$reset_color%} '
+#fi
 
 # if [ -f /usr/local/opt/pyenv/shims/virtualenvwrapper.sh ]; then
 #     source /usr/local/opt/pyenv/shims/virtualenvwrapper_lazy.sh

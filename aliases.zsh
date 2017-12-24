@@ -16,17 +16,17 @@ mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and ju
 ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
 zipf () { zip -r "$1".zip "$1" ; }          # zipf:         To create a ZIP archive of a folder
 
-useconda () {
-    if [ -f /usr/local/anaconda3/bin/conda ]; then
-        export OLD_PATH=$PATH
-        export PATH="/usr/local/anaconda3/bin:$PATH";
-        export RPROMPT='[CONDA]';
-    fi;
-}
-usepy() {
-    export PATH=$OLD_PATH; 
-    export RPROMPT='';
-}
+# useconda () {
+#    if [ -f /usr/local/anaconda3/bin/conda ]; then
+#        export OLD_PATH=$PATH
+#        export PATH="/usr/local/anaconda3/bin:$PATH";
+#        export RPROMPT='[CONDA]';
+#    fi;
+#}
+# usepy() {
+#    export PATH=$OLD_PATH; 
+#    export RPROMPT='';
+#}
 
 #   extract:  Extract most know archives with one command
 #   ---------------------------------------------------------
