@@ -5,11 +5,10 @@ alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable 
 alias cleanbrew="brew cleanup -s & cask cleanup"
 alias npmls="npm ls --depth 0 -g"
 alias npmout="npm outdated --depth 0 -g"
-alias arduino="/Applications/Arduino.app/Contents/MacOS/JavaApplicationStub"
 alias numFiles='echo $(ls -1 | wc -l)'      # numFiles:     Count of non-hidden files in current dir
 alias cask="brew cask"
-alias gl="gl"
 alias python2="/usr/bin/python"
+alias la="ls -a"
 
 mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and jumps inside
 ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview

@@ -50,7 +50,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(brew npm osx python colorize vagrant pip virtualenv git aws yarn docker git-flow)
+plugins=(brew npm osx python colorize vagrant pip virtualenv git aws yarn docker git-flow conda)
 
 # User configuration
 export PATH=$HOME/bin:$HOME/.bin:/usr/local/bin:/usr/local/opt/python/libexec/bin:$PATH
@@ -105,7 +105,7 @@ if [ -f $HOME/.iterm2_shell_integration.`basename $SHELL` ]; then
     source $HOME/.iterm2_shell_integration.`basename $SHELL`
 fi
 
-if [ -f /usr/local/miniconda3/bin/conda ]; then
+if [ -f /usr/local/anaconda3/bin/conda ]; then
     export PATH="/usr/local/miniconda3/bin:$PATH";
 fi;
 
