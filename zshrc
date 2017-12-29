@@ -106,7 +106,7 @@ if [ -f $HOME/.iterm2_shell_integration.`basename $SHELL` ]; then
 fi
 
 if [ -f /usr/local/anaconda3/bin/conda ]; then
-    export PATH="/usr/local/miniconda3/bin:$PATH";
+    export PATH="/usr/local/anaconda3/bin:$PATH";
 fi;
 
 #if [ -n "$(type virtualenv_prompt_info)" ];  then
