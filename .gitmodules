@@ -1,12 +1,16 @@
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
+	branch = master
 [submodule "vim/bundle/vim-sensible"]
 	path = vim/bundle/vim-sensible
 	url = https://github.com/tpope/vim-sensible.git
+	branch = master
 [submodule "vim/bundle/vim-airline"]
 	path = vim/bundle/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
+	branch = master
 [submodule "vim/bundle/Solarized"]
 	path = vim/bundle/Solarized
 	url = https://github.com/vim-scripts/Solarized.git
+	branch = master
