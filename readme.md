@@ -6,3 +6,5 @@ To do:
 
 - [ ] dotfiles script avoid symlink for launchd plist
 - [ ] lint the dotfiles script
+- [ ] link `ssh/config` in `$HOME/.ssh/config`
+
