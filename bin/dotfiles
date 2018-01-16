@@ -129,7 +129,7 @@ def main():
 
         print "Updating git submodules..."
 
-        subprocess.check_call(["git", "submodule", "update", "--remote", "--merge", "--recursive"])
+        subprocess.check_call(["git", "submodule", "foreach", "git", "pull", "origin", "master"])
 
         print "...Done!"
 
