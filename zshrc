@@ -33,7 +33,3 @@ fi
 if [ -f $HOME/.iterm2_shell_integration.`basename $SHELL` ]; then
     source $HOME/.iterm2_shell_integration.`basename $SHELL`
 fi
-
-if [ -f /usr/local/anaconda3/bin/conda ]; then
-    export PATH="/usr/local/anaconda3/bin:$PATH";
-fi;
