@@ -1,8 +1,3 @@
-[submodule "oh-my-zsh"]
-	path = oh-my-zsh
-	url = https://github.com/robbyrussell/oh-my-zsh.git
-	ignore = all
-	branch = master
 [submodule "vim/bundle/vim-sensible"]
 	path = vim/bundle/vim-sensible
 	url = https://github.com/tpope/vim-sensible.git
@@ -17,4 +12,12 @@
 	path = vim/bundle/Solarized
 	url = https://github.com/vim-scripts/Solarized.git
 	ignore = all
+	branch = master
+[submodule "prezto"]
+	path = prezto
+	url = git@github.com:sorin-ionescu/prezto.git
+	branch = master
+[submodule "zsh-python-prompt"]
+	path = zsh-python-prompt
+	url = git@github.com:yonchu/zsh-python-prompt.git
 	branch = master
