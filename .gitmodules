@@ -13,10 +13,6 @@
 	url = https://github.com/vim-scripts/Solarized.git
 	ignore = all
 	branch = master
-[submodule "prezto"]
-	path = prezto
-	url = git@github.com:sorin-ionescu/prezto.git
-	branch = master
 [submodule "zsh-python-prompt"]
 	path = zsh-python-prompt
 	url = git@github.com:yonchu/zsh-python-prompt.git

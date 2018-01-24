@@ -1,16 +1,41 @@
 export DOTFILES=$HOME/.dotfiles
-export ZPREZTODIR=$DOTFILES/prezto
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+export PYENV_VIRTUALENV_DISABLE_PROMPT=0
+export EDITOR='nano'
+export VISUAL='nano'
+export PAGER='less'
 
-if [[ -s "$DOTFILES/prezto/init.zsh" ]]; then
-  source "$DOTFILES/prezto/init.zsh"
+if [[ -s "$DOTFILES/antigen.zsh" ]]; then
+  source "$DOTFILES/antigen.zsh"
+
+  # Load the oh-my-zsh's library.
+  antigen use oh-my-zsh
+
+  # Bundles from the default repo (robbyrussell's oh-my-zsh).
+  antigen bundle osx
+  antigen bundle python
+  antigen bundle pip
+  antigen bundle pyenv
+  antigen bundle pyenv-virtualenv
+  antigen bundle npm
+  antigen bundle command-not-found
+
+  # Syntax highlighting bundle.
+  # antigen bundle zsh-users/zsh-syntax-highlighting
+  # antigen bundle nojhan/liquidprompt
+
+  # Load the theme.
+  BULLETTRAIN_PROMPT_ORDER=(
+    dir
+    virtualenv
+    git
+    status
+    cmd_exec_time
+  )
+  antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-train
+
+  # Tell Antigen that you're done.
+  antigen apply
 fi
-
-if [[ -s "$DOTFILES/zsh-python-prompt/zshrc.zsh" ]]; then
-  source "$DOTFILES/zsh-python-prompt/zshrc.zsh"
-fi
-
-RPROMPT+=' $ZSH_PYTHON_PROMPT'
 
 export PATH=$HOME/bin:$HOME/.bin:/usr/local/bin:/usr/local/opt/python/libexec/bin:$PATH
 export MANPATH="/usr/local/man:$MANPATH"
