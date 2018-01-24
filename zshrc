@@ -21,21 +21,24 @@ if [[ -s "$DOTFILES/antigen.zsh" ]]; then
 
   # Syntax highlighting bundle.
   # antigen bundle zsh-users/zsh-syntax-highlighting
-  # antigen bundle nojhan/liquidprompt
+  antigen bundle nojhan/liquidprompt
 
   # Load the theme.
-  BULLETTRAIN_PROMPT_ORDER=(
-    dir
-    virtualenv
-    git
-    status
-    cmd_exec_time
-  )
-  antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-train
+  #BULLETTRAIN_PROMPT_ORDER=(
+  #  dir
+  #  virtualenv
+  #  git
+  #  status
+  #  cmd_exec_time
+  #)
+  #antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-train
 
   # Tell Antigen that you're done.
   antigen apply
 fi
+
+setopt PROMPT_SUBST
+RPROMPT+=' [py@$(pyenv_prompt_info)]'
 
 export PATH=$HOME/bin:$HOME/.bin:/usr/local/bin:/usr/local/opt/python/libexec/bin:$PATH
 export MANPATH="/usr/local/man:$MANPATH"
