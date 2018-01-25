@@ -20,6 +20,11 @@ def updatePathogen(curdir):
     checkCreateDir(pathogendir)
     downloadFile(pathogenurl, pathogendir + "/pathogen.vim")
 
+def updateAntigen(curdir):
+    antigenurl = "https://raw.githubusercontent.com/zsh-users/antigen/master/bin/antigen.zsh"
+
+    downloadFile(antigenurl, curdir + "/antigen.zsh")
+
 def diffDirectories(orig, mirror):
     result = [[],[]]
 
@@ -120,10 +125,11 @@ def main():
         parser.error("Incorrect usage. Check help with --help.")
 
     if opts.update:
-        print "Updating pathogen..."
+        print "Updating pathogen and antigen..."
 
         curdir = os.environ['DOTFILES']
         updatePathogen(curdir)
+        updateAntigen(curdir)
 
         print "...Done!"
 

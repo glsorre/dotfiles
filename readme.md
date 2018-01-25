@@ -4,7 +4,6 @@ To install:
 
 To do:
 
-- [ ] dotfiles script avoid symlink for launchd plist
-- [ ] lint the dotfiles script
-- [ ] link `ssh/config` in `$HOME/.ssh/config`
+- [ ] dotfiles setup script: avoid symlink for launchd plist
+- [ ] dotfiles setup script: link `ssh/config` in `$HOME/.ssh/config`
 
