@@ -1,7 +1,7 @@
 export DOTFILES=$HOME/.dotfiles
 export PYENV_VIRTUALENV_DISABLE_PROMPT=0
-export EDITOR='nano'
-export VISUAL='nano'
+export EDITOR='vim'
+export VISUAL='vim'
 export PAGER='less'
 
 if [[ -s "$DOTFILES/antigen.zsh" ]]; then
