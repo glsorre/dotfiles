@@ -17,7 +17,8 @@ if [[ -s "$DOTFILES/antigen.zsh" ]]; then
   antigen bundle pyenv
   antigen bundle pyenv-virtualenv
   antigen bundle npm
-  antigen bundle command-not-found
+  antigen bundle git-flow
+  antigen bundle git
 
   # Syntax highlighting bundle.
   # antigen bundle zsh-users/zsh-syntax-highlighting
@@ -61,3 +62,9 @@ fi
 if [ -f $HOME/.iterm2_shell_integration.`basename $SHELL` ]; then
     source $HOME/.iterm2_shell_integration.`basename $SHELL`
 fi
+
+fpath=(
+  /usr/local/share/zsh-completions
+  /usr/local/share/zsh/site-functions
+  $fpath
+)
