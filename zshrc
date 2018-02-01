@@ -20,19 +20,8 @@ if [[ -s "$DOTFILES/antigen.zsh" ]]; then
   antigen bundle git-flow
   antigen bundle git
 
-  # Syntax highlighting bundle.
-  # antigen bundle zsh-users/zsh-syntax-highlighting
-  antigen bundle nojhan/liquidprompt
-
-  # Load the theme.
-  #BULLETTRAIN_PROMPT_ORDER=(
-  #  dir
-  #  virtualenv
-  #  git
-  #  status
-  #  cmd_exec_time
-  #)
-  #antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-train
+  antigen bundle mafredri/zsh-async
+  antigen bundle sindresorhus/pure
 
   # Tell Antigen that you're done.
   antigen apply
