@@ -30,3 +30,7 @@ id_dsa
 id_rsa
 id_rsa.pub
 known_hosts
+
+#vim
+vim/.netrwhist
+
