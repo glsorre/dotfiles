@@ -61,3 +61,7 @@ $RECYCLE.BIN/
 
 # Local history
 .history
+
+# Local editor configurations
+.vs_code
+.idea

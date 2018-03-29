@@ -40,6 +40,7 @@ RPROMPT+=' [py@$(pyenv_prompt_info)]'
 
 export PATH=$HOME/bin:$HOME/.bin:/usr/local/bin:/usr/local/opt/python/libexec/bin:$PATH
 export MANPATH="/usr/local/man:$MANPATH"
+export PURE_PROMPT_SYMBOL="$"
 
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
