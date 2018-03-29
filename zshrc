@@ -15,10 +15,18 @@ if [[ -s "$DOTFILES/antigen.zsh" ]]; then
   antigen bundle python
   antigen bundle pip
   antigen bundle pyenv
-  antigen bundle pyenv-virtualenv
   antigen bundle npm
-  antigen bundle git-flow
   antigen bundle git
+  antigen bundle git-flow
+  antigen bundle command-not-found
+  antigen bundle colored-man-pages
+  antigen bundle extract
+
+  antigen bundle zsh-users/zsh-syntax-highlighting
+  antigen bundle zsh-users/zsh-autosuggestions
+  antigen bundle zsh-users/zsh-completions
+
+  antigen bundle unixorn/autoupdate-antigen.zshplugin
 
   antigen bundle mafredri/zsh-async
   antigen bundle sindresorhus/pure
@@ -48,10 +56,6 @@ if [ -f $HOME/.me.zsh ]; then
     source $HOME/.me.zsh
 fi
 
-if [ -f /usr/local/share/zsh/site-functions/pyenv.zsh  ]; then
-    source /usr/local/share/zsh/site-functions/pyenv.zsh
-fi
-
 if [ -f /usr/local/opt/pyenv/versions/miniconda3-latest/etc/profile.d/conda.sh ]; then
     source /usr/local/opt/pyenv/versions/miniconda3-latest/etc/profile.d/conda.sh
 fi
@@ -60,8 +64,3 @@ if [ -f $HOME/.iterm2_shell_integration.`basename $SHELL` ]; then
     source $HOME/.iterm2_shell_integration.`basename $SHELL`
 fi
 
-fpath=(
-  /usr/local/share/zsh-completions
-  /usr/local/share/zsh/site-functions
-  $fpath
-)
