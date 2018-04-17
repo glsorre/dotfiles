@@ -40,7 +40,7 @@ fi
 setopt PROMPT_SUBST
 #RPROMPT+=' [py@$(pyenv_prompt_info)]'
 
-export PATH=$HOME/bin:$HOME/.bin:/usr/local/bin:/usr/local/opt/python/libexec/bin:$PATH
+export PATH=$HOME/bin:$HOME/.bin:/usr/local/bin:$PATH
 export MANPATH="/usr/local/man:$MANPATH"
 
 export LANG=en_US.UTF-8
@@ -58,76 +58,111 @@ if [ -f $HOME/.me.zsh ]; then
     source $HOME/.me.zsh
 fi
 
-if [ -f /usr/local/opt/pyenv/versions/miniconda3-latest/etc/profile.d/conda.sh ]; then
-    source /usr/local/opt/pyenv/versions/miniconda3-latest/etc/profile.d/conda.sh
+if [ -f /usr/local/miniconda3/etc/profile.d/conda.sh ]; then
+    source /usr/local/miniconda3/etc/profile.d/conda.sh
 fi
 
 if [ -f $HOME/.iterm2_shell_integration.`basename $SHELL` ]; then
     source $HOME/.iterm2_shell_integration.`basename $SHELL`
 fi
 
-# # USER
-# SPACESHIP_USER_PREFIX="" # remove `with` before username
-# SPACESHIP_USER_SUFFIX="" # remove space before host
+# ORDER
+SPACESHIP_PROMPT_ORDER=(
+  time          # Time stampts section
+  user          # Username section
+  dir           # Current directory section
+  host          # Hostname section
+  git           # Git section (git_branch + git_status)
+  hg            # Mercurial section (hg_branch  + hg_status)
+  package       # Package version
+  node          # Node.js section
+  ruby          # Ruby section
+  elixir        # Elixir section
+  xcode         # Xcode section
+  swift         # Swift section
+  golang        # Go section
+  php           # PHP section
+  rust          # Rust section
+  haskell       # Haskell Stack section
+  julia         # Julia section
+  docker        # Docker section
+  aws           # Amazon Web Services section
+  venv          # virtualenv section
+  conda         # conda virtualenv section
+  pyenv         # Pyenv section
+  dotnet        # .NET section
+  ember         # Ember.js section
+  kubecontext   # Kubectl context section
+  exec_time     # Execution time
+  line_sep      # Line break
+  battery       # Battery level and status
+  vi_mode       # Vi-mode indicator
+  jobs          # Background jobs indicator
+  exit_code     # Exit code section
+  char          # Prompt character
+)
 
-# # HOST
-# # Result will look like this:
-# #   username@:(hostname)
-# SPACESHIP_HOST_PREFIX="@:("
-# SPACESHIP_HOST_SUFFIX=") "
+# USER
+SPACESHIP_USER_PREFIX="" # remove `with` before username
+SPACESHIP_USER_SUFFIX="" # remove space before host
 
-# # DIR
-# SPACESHIP_DIR_PREFIX='' # disable directory prefix, cause it's not the first section
-# SPACESHIP_DIR_TRUNC='1' # show only last directory
+# HOST
+# Result will look like this:
+#   username@:(hostname)
+SPACESHIP_HOST_PREFIX="@:("
+SPACESHIP_HOST_SUFFIX=") "
 
-# # GIT
-# # Disable git symbol
-# SPACESHIP_GIT_SYMBOL="" # disable git prefix
-# SPACESHIP_GIT_BRANCH_PREFIX="" # disable branch prefix too
-# # Wrap git in `git:(...)`
-# SPACESHIP_GIT_PREFIX='git:('
-# SPACESHIP_GIT_SUFFIX=") "
-SPACESHIP_GIT_BRANCH_PREFIX="" # remove space after branch name
-# # Unwrap git status from `[...]`
-# SPACESHIP_GIT_STATUS_PREFIX=""
-# SPACESHIP_GIT_STATUS_SUFFIX=""
+# DIR
+SPACESHIP_DIR_PREFIX='' # disable directory prefix, cause it's not the first section
+SPACESHIP_DIR_TRUNC='1' # show only last directory
 
-# # NODE
-# SPACESHIP_NODE_PREFIX="node:("
-# SPACESHIP_NODE_SUFFIX=") "
-# SPACESHIP_NODE_SYMBOL=""
+# GIT
+# Disable git symbol
+SPACESHIP_GIT_SYMBOL="" # disable git prefix
+SPACESHIP_GIT_BRANCH_PREFIX="" # disable branch prefix too
+# Wrap git in `git:(...)`
+SPACESHIP_GIT_PREFIX='git:('
+SPACESHIP_GIT_SUFFIX=") "
+SPACESHIP_GIT_BRANCH_SUFFIX="" # remove space after branch name
+# Unwrap git status from `[...]`
+SPACESHIP_GIT_STATUS_PREFIX=""
+SPACESHIP_GIT_STATUS_SUFFIX=""
 
-# # RUBY
-# SPACESHIP_RUBY_PREFIX="ruby:("
-# SPACESHIP_RUBY_SUFFIX=") "
-# SPACESHIP_RUBY_SYMBOL=""
+# NODE
+SPACESHIP_NODE_PREFIX="node:("
+SPACESHIP_NODE_SUFFIX=") "
+SPACESHIP_NODE_SYMBOL=""
 
-# # XCODE
-# SPACESHIP_XCODE_PREFIX="xcode:("
-# SPACESHIP_XCODE_SUFFIX=") "
-# SPACESHIP_XCODE_SYMBOL=""
+# RUBY
+SPACESHIP_RUBY_PREFIX="ruby:("
+SPACESHIP_RUBY_SUFFIX=") "
+SPACESHIP_RUBY_SYMBOL=""
 
-# # SWIFT
-# SPACESHIP_SWIFT_PREFIX="swift:("
-# SPACESHIP_SWIFT_SUFFIX=") "
-# SPACESHIP_SWIFT_SYMBOL=""
+# XCODE
+SPACESHIP_XCODE_PREFIX="xcode:("
+SPACESHIP_XCODE_SUFFIX=") "
+SPACESHIP_XCODE_SYMBOL=""
 
-# # GOLANG
-# SPACESHIP_GOLANG_PREFIX="go:("
-# SPACESHIP_GOLANG_SUFFIX=") "
-# SPACESHIP_GOLANG_SYMBOL=""
+# SWIFT
+SPACESHIP_SWIFT_PREFIX="swift:("
+SPACESHIP_SWIFT_SUFFIX=") "
+SPACESHIP_SWIFT_SYMBOL=""
 
-# # DOCKER
-# SPACESHIP_DOCKER_PREFIX="docker:("
-# SPACESHIP_DOCKER_SUFFIX=") "
-# SPACESHIP_DOCKER_SYMBOL=""
+# GOLANG
+SPACESHIP_GOLANG_PREFIX="go:("
+SPACESHIP_GOLANG_SUFFIX=") "
+SPACESHIP_GOLANG_SYMBOL=""
 
-# # VENV
-# SPACESHIP_VENV_PREFIX="venv:("
-# SPACESHIP_VENV_SUFFIX=") "
+# DOCKER
+SPACESHIP_DOCKER_PREFIX="docker:("
+SPACESHIP_DOCKER_SUFFIX=") "
+SPACESHIP_DOCKER_SYMBOL=""
 
-# # PYENV
-# SPACESHIP_PYENV_PREFIX="python:("
-# SPACESHIP_PYENV_SUFFIX=") "
-# SPACESHIP_PYENV_SYMBOL=""
+# VENV
+SPACESHIP_VENV_PREFIX="venv:("
+SPACESHIP_VENV_SUFFIX=") "
 
+# PYENV
+SPACESHIP_PYENV_PREFIX="python:("
+SPACESHIP_PYENV_SUFFIX=") "
+SPACESHIP_PYENV_SYMBOL=""
