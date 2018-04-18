@@ -114,7 +114,7 @@ SPACESHIP_HOST_SUFFIX=") "
 
 # DIR
 SPACESHIP_DIR_PREFIX='' # disable directory prefix, cause it's not the first section
-SPACESHIP_DIR_TRUNC='1' # show only last directory
+SPACESHIP_DIR_TRUNC=''
 
 # GIT
 # Disable git symbol
