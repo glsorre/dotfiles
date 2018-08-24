@@ -1,0 +1,17 @@
+echo -ne '\eP\e]4;10;#586E75\a'  # bold green   -> base01 *
+echo -ne  '\eP\e]4;3;#B58900\a'  # yellow       -> yellow
+echo -ne '\eP\e]4;11;#657B83\a'  # bold yellow  -> base00 *
+echo -ne  '\eP\e]4;4;#268BD2\a'  # blue         -> blue
+echo -ne '\eP\e]4;12;#839496\a'  # bold blue    -> base0 *
+echo -ne  '\eP\e]4;5;#D33682\a'  # magenta      -> magenta
+echo -ne '\eP\e]4;13;#6C71C4\a'  # bold magenta -> violet
+echo -ne  '\eP\e]4;6;#2AA198\a'  # cyan         -> cyan
+echo -ne '\eP\e]4;14;#93A1A1\a'  # bold cyan    -> base1 *
+echo -ne  '\eP\e]4;7;#EEE8D5\a'  # white        -> Base2
+echo -ne '\eP\e]4;15;#FDF6E3\a'  # bold white   -> Base3
+
+eval `dircolors ~/.dotfiles/dir_colors`
+
+if [ -t 1 ]; then  
+	exec zsh
+fi  
