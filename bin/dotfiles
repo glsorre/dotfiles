@@ -4,6 +4,7 @@ import optparse
 import urllib
 import os
 import shutil
+import platform
 
 def downloadFile(url, cwd):
     target = urllib.URLopener()
@@ -12,13 +13,6 @@ def downloadFile(url, cwd):
 def checkCreateDir(dir):
     if not os.path.exists(dir):
         os.makedirs(dir)
-
-def updatePathogen(curdir):
-    pathogendir = curdir + "/vim/autoload/"
-    pathogenurl = "https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim"
-
-    checkCreateDir(pathogendir)
-    downloadFile(pathogenurl, pathogendir + "/pathogen.vim")
 
 def updateAntigen(curdir):
     antigenurl = "https://raw.githubusercontent.com/zsh-users/antigen/master/bin/antigen.zsh"
@@ -125,17 +119,10 @@ def main():
         parser.error("Incorrect usage. Check help with --help.")
 
     if opts.update:
-        print "Updating pathogen and antigen..."
+        print "Updating antigen..."
 
         curdir = os.environ['DOTFILES']
-        updatePathogen(curdir)
         updateAntigen(curdir)
-
-        print "...Done!"
-
-        print "Updating git submodules..."
-
-        subprocess.check_call(["git", "submodule", "update", "--init", "--recursive"])
 
         print "...Done!"
 
@@ -146,33 +133,21 @@ def main():
         print "...Done!"
 
     else:
-        print "Init pathogen..."
-
-        curdir = os.environ['DOTFILES']
-        updatePathogen(curdir)
-
-        print "...Done!"
-
-        print "Init git submodules..."
-
-        subprocess.check_call(["git", "submodule", "update", "--init", "--recursive"])
-
-        print "...Done!"
-
         print "Symlinking dotfiles..."
 
-        filterList = [".DS_Store", ".git", ".gitmodules", ".gitignore"]
+        filterList = [".DS_Store", ".git", ".gitmodules", ".gitignore", "winconf", "macconf", "bash_wsl", ".history", ".vscode", "dir_colors", "readme.md"]
         filterExt = [".zsh"]
         symlinkFolder(os.environ['DOTFILES'], os.environ['HOME'], True, filterList, filterExt)
 
         print "...Done!"
 
-        print "Symlinking lauch daemon updating job..."
+        if platform.system() == 'Darwin':
+            print "Symlinking lauch daemon updating job..."
 
-        os.symlink(os.path.join(os.environ['DOTFILES'], 'com.rightright.dotfiles.plist'),
-            os.path.join(os.environ['HOME'], 'Library/LaunchAgents/com.rightright.dotfiles.plist'))
+            os.symlink(os.path.join(os.environ['DOTFILES'], 'macconf', 'com.rightright.dotfiles.plist'),
+                os.path.join(os.environ['HOME'], 'Library/LaunchAgents/com.rightright.dotfiles.plist'))
 
-        print "...Done!"
+            print "...Done!"
 
 if __name__ == "__main__":
     os.chdir(os.environ['DOTFILES'])

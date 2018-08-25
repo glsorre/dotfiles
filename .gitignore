@@ -34,3 +34,5 @@ known_hosts
 #vim
 vim/.netrwhist
 
+.history
+.vscode
