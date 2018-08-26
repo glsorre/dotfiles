@@ -11,7 +11,15 @@ if [[ -s "$DOTFILES/antigen.zsh" ]]; then
   antigen use oh-my-zsh
 
   # Bundles from the default repo (robbyrussell's oh-my-zsh).
-  antigen bundle osx
+  case `uname` in
+  Darwin)
+    # commands for OS X go here
+    antigen bundle osx
+  ;;
+  Linux)
+    # commands for Linux go here
+  ;;
+  esac
   antigen bundle python
   antigen bundle pip
   antigen bundle pyenv
