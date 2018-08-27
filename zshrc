@@ -18,8 +18,10 @@ if [[ -s "$DOTFILES/antigen.zsh" ]]; then
   ;;
   Linux)
     # commands for Linux go here
+    antigen bundle brew
   ;;
   esac
+
   antigen bundle python
   antigen bundle pip
   antigen bundle pyenv
@@ -66,13 +68,21 @@ if [ -f $HOME/.me.zsh ]; then
     source $HOME/.me.zsh
 fi
 
-if [ -f /usr/local/miniconda3/etc/profile.d/conda.sh ]; then
-    source /usr/local/miniconda3/etc/profile.d/conda.sh
-fi
+case `uname` in
+  Darwin)
+    # commands for OS X go here
+    if [ -f /usr/local/miniconda3/etc/profile.d/conda.sh ]; then
+      source /usr/local/miniconda3/etc/profile.d/conda.sh
+    fi
 
-if [ -f $HOME/.iterm2_shell_integration.`basename $SHELL` ]; then
-    source $HOME/.iterm2_shell_integration.`basename $SHELL`
-fi
+    if [ -f $HOME/.iterm2_shell_integration.`basename $SHELL` ]; then
+      source $HOME/.iterm2_shell_integration.`basename $SHELL`
+    fi
+  ;;
+  Linux)
+    # commands for Linux go here
+  ;;
+esac
 
 test -d /home/linuxbrew/.linuxbrew && PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
 
