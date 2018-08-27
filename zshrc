@@ -80,11 +80,10 @@ case `uname` in
     fi
   ;;
   Linux)
-    # commands for Linux go here
+    #test -d /home/linuxbrew/.linuxbrew && PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
+    eval "$(pyenv init -)"
   ;;
 esac
-
-test -d /home/linuxbrew/.linuxbrew && PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
 
 # ORDER
 SPACESHIP_PROMPT_ORDER=(
