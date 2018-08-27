@@ -80,7 +80,7 @@ case `uname` in
     fi
   ;;
   Linux)
-    #test -d /home/linuxbrew/.linuxbrew && PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
+    test -d /home/linuxbrew/.linuxbrew && PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
     eval "$(pyenv init -)"
   ;;
 esac
