@@ -135,7 +135,7 @@ def main():
     else:
         print "Symlinking dotfiles..."
 
-        filterList = [".DS_Store", ".git", ".gitmodules", ".gitignore", "winconf", "macconf", "bash_wsl", ".history", ".vscode", "dir_colors", "readme.md"]
+        filterList = [".DS_Store", ".git", ".gitignore", "winconf", "macconf", "bash_wsl", ".history", ".vscode", "dir_colors", "readme.md", "ssh"]
         filterExt = [".zsh"]
         symlinkFolder(os.environ['DOTFILES'], os.environ['HOME'], True, filterList, filterExt)
 
