@@ -4,6 +4,28 @@ export EDITOR='vim'
 export VISUAL='vim'
 export PAGER='less'
 
+setopt PROMPT_SUBST
+#RPROMPT+=' [py@$(pyenv_prompt_info)]'
+
+export PATH=$HOME/bin:$HOME/.bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export MANPATH="/usr/local/man:$MANPATH"
+
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+case `uname` in
+  Darwin)
+    # commands for OS X go here    
+    if [ -f $HOME/.iterm2_shell_integration.`basename $SHELL` ]; then
+      source $HOME/.iterm2_shell_integration.`basename $SHELL`
+    fi
+  ;;
+  Linux)
+    test -d /home/linuxbrew/.linuxbrew && PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
+    #eval "$(pyenv init -)"
+  ;;
+esac
+
 if [[ -s "$DOTFILES/antigen.zsh" ]]; then
   source "$DOTFILES/antigen.zsh"
 
@@ -18,10 +40,10 @@ if [[ -s "$DOTFILES/antigen.zsh" ]]; then
   ;;
   Linux)
     # commands for Linux go here
-    antigen bundle brew
   ;;
   esac
 
+  antigen bundle brew
   antigen bundle python
   antigen bundle pip
   antigen bundle pyenv
@@ -47,15 +69,6 @@ if [[ -s "$DOTFILES/antigen.zsh" ]]; then
   antigen apply
 fi
 
-setopt PROMPT_SUBST
-#RPROMPT+=' [py@$(pyenv_prompt_info)]'
-
-export PATH=$HOME/bin:$HOME/.bin:/usr/local/bin:$PATH
-export MANPATH="/usr/local/man:$MANPATH"
-
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-
 if [ -f "$DOTFILES/colors.zsh" ]; then
     source $DOTFILES/colors.zsh
 fi
@@ -68,22 +81,9 @@ if [ -f $HOME/.me.zsh ]; then
     source $HOME/.me.zsh
 fi
 
-case `uname` in
-  Darwin)
-    # commands for OS X go here
-    if [ -f /usr/local/miniconda3/etc/profile.d/conda.sh ]; then
-      source /usr/local/miniconda3/etc/profile.d/conda.sh
-    fi
-
-    if [ -f $HOME/.iterm2_shell_integration.`basename $SHELL` ]; then
-      source $HOME/.iterm2_shell_integration.`basename $SHELL`
-    fi
-  ;;
-  Linux)
-    test -d /home/linuxbrew/.linuxbrew && PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
-    eval "$(pyenv init -)"
-  ;;
-esac
+if [ -f /usr/local/miniconda3/etc/profile.d/conda.sh ]; then
+    source /usr/local/miniconda3/etc/profile.d/conda.sh
+fi
 
 # ORDER
 SPACESHIP_PROMPT_ORDER=(

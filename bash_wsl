@@ -16,7 +16,7 @@ echo -ne '\eP\e]4;13;#6C71C4\a'  # bold magenta -> violet
 echo -ne  '\eP\e]4;6;#2AA198\a'  # cyan         -> cyan
 echo -ne '\eP\e]4;14;#93A1A1\a'  # bold cyan    -> base1 *
 echo -ne  '\eP\e]4;7;#EEE8D5\a'  # white        -> Base2
-echo -ne '\eP\e]4;15;#FDF6E3\a' # bold white -> Base3
+echo -ne '\eP\e]4;15;#FDF6E3\a'  # bold white   -> Base3
 
 eval `dircolors ~/.dotfiles/dir_colors`
 
