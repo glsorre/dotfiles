@@ -11,9 +11,9 @@ To install:
 
 - for **wsl** add to .bashrc the following code
     ```
-    if [ -f $HOME/.dotfiles/bash_wsl ]; then
-        source $HOME/.dotfiles/bash_wsl
-    fi` 
+    if [ -t 1 ]; then
+        exec zsh
+    fi
     ```
 
 To do:
