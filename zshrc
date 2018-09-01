@@ -23,6 +23,7 @@ case `uname` in
   Linux)
     test -d /home/linuxbrew/.linuxbrew && PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
     #eval "$(pyenv init -)"
+    eval $(ssh-agent)
     eval `dircolors $DOTFILES/dir_colors`
   ;;
 esac
