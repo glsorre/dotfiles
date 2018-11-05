@@ -13,7 +13,7 @@ zipf () { zip -r "$1".zip "$1" ; }          # zipf:         To create a ZIP arch
 case `uname` in
   Darwin)
     # commands for OS X go here
-    alias cleanbrew="brew cleanup -s & cask cleanup"
+    alias cleanbrew="brew cleanup -s"
     alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
   ;;
   Linux)
