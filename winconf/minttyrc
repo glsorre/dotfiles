@@ -1,5 +1,16 @@
 Font=Monoid
-FontHeight=11
+FontHeight=14
+Charset=UTF-8
+Locale=en_US
+Charwidth=unicode
+Emojis=apple
+Term=xterm
+FontWeight=400
+FontIsBold=no
+BoldAsColour=yes
+BoldAsFont=no
+FontSmoothing=default
+EmojiPlacement=middle
 
 ForegroundColour=101, 123, 131
 BackgroundColour=253, 246, 227
@@ -22,6 +33,6 @@ BoldCyan=        147, 161, 161
 White=           238, 232, 213
 BoldWhite=       253, 246, 227
 
-CursorType=block
+CursorType=underscore
 CursorBlinks=no
 CursorColour=7,54,66
