@@ -24,6 +24,19 @@ case `uname` in
     test -d /home/linuxbrew/.linuxbrew && PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
     #eval "$(pyenv init -)"
     eval `dircolors $DOTFILES/dir_colors`
+    
+    # ssh-agent configuration
+    if [ -z "$(pgrep ssh-agent)" ]; then
+        rm -rf /tmp/ssh-*
+        eval $(ssh-agent -s) > /dev/null
+    else
+        export SSH_AGENT_PID=$(pgrep ssh-agent)
+        export SSH_AUTH_SOCK=$(find /tmp/ssh-* -name "agent.*")
+    fi
+    
+    if [ "$(ssh-add -l)" = "The agent has no identities." ]; then
+        ssh-add
+    fi
   ;;
 esac
 
