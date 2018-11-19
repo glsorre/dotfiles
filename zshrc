@@ -37,6 +37,8 @@ case `uname` in
     if [ "$(ssh-add -l)" = "The agent has no identities." ]; then
         ssh-add
     fi
+    
+    umask 002
   ;;
 esac
 
