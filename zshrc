@@ -5,7 +5,6 @@ export VISUAL='vim'
 export PAGER='less'
 
 setopt PROMPT_SUBST
-#RPROMPT+=' [py@$(pyenv_prompt_info)]'
 
 export PATH=$HOME/bin:$HOME/.bin:$HOME/.local/bin:/usr/local/bin:$PATH
 export MANPATH="/usr/local/man:$MANPATH"
@@ -42,50 +41,49 @@ case `uname` in
   ;;
 esac
 
-if [[ -s "$DOTFILES/antigen.zsh" ]]; then
-  source "$DOTFILES/antigen.zsh"
+autoload -Uz compinit
 
-  # Load the oh-my-zsh's library.
-  antigen use oh-my-zsh
-
-  # Bundles from the default repo (robbyrussell's oh-my-zsh).
-  case `uname` in
-  Darwin)
-    # commands for OS X go here
-    antigen bundle osx
-  ;;
-  Linux)
-    # commands for Linux go here
-  ;;
-  esac
-
-  antigen bundle brew
-  antigen bundle python
-  antigen bundle pip
-  antigen bundle pyenv
-  antigen bundle npm
-  antigen bundle git
-  antigen bundle git-flow
-  antigen bundle command-not-found
-  antigen bundle colored-man-pages
-  antigen bundle extract
-
-  antigen bundle zsh-users/zsh-syntax-highlighting
-  antigen bundle zsh-users/zsh-autosuggestions
-  antigen bundle zsh-users/zsh-completions
-
-  antigen bundle unixorn/autoupdate-antigen.zshplugin
-
-#  antigen bundle mafredri/zsh-async
-#  antigen bundle sindresorhus/pure
-
-  antigen theme https://github.com/denysdovhan/spaceship-prompt spaceship
-
-  # Tell Antigen that you're done.
-  antigen apply
+if which antibody &>/dev/null; then
+  _antibody_path=$(which antibody 2>/dev/null)
 fi
 
-if [ -f "$DOTFILES/colors.zsh" ]; then
+if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
+  DISABLE_AUTO_UPDATE=true
+  ZSH=`antibody home`
+  ZSH+="/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
+  plugins=(
+  brew
+  pip
+  pyenv
+  npm
+  git
+  git-flow
+  command-not-found
+  colored-man-pages
+  extract
+  aws
+  docker
+  docker-compose
+  )
+ 
+  source <($_antibody_path init)
+
+  case `uname` in
+    Darwin)
+      plugins+=(osx)
+      source <(eval $_antibody_path "bundle < $DOTFILES/zsh_plugins_mac.txt")
+    ;;
+    Linux)
+      source <(eval $_antibody_path "bundle < $DOTFILES/zsh_plugins_linux.txt")
+    ;; 
+  esac
+fi
+
+compinit -i
+
+unset _antibody_path
+
+if [ -f $DOTFILES/colors.zsh ]; then
     source $DOTFILES/colors.zsh
 fi
 
