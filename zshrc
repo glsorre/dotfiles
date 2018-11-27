@@ -22,7 +22,7 @@ case `uname` in
   Linux)
     test -d /home/linuxbrew/.linuxbrew && PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
     #eval "$(pyenv init -)"
-    eval `dircolors $DOTFILES/dir_colors`
+    eval `dircolors $DOTFILES/sh/dir_colors`
     
     # ssh-agent configuration
     if [ -z "$(pgrep ssh-agent)" ]; then
@@ -71,10 +71,10 @@ if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
   case `uname` in
     Darwin)
       plugins+=(osx)
-      source <(eval $_antibody_path "bundle < $DOTFILES/zsh_plugins_mac.txt")
+      source <(eval $_antibody_path "bundle < $DOTFILES/antibody/zsh_plugins_mac.txt")
     ;;
     Linux)
-      source <(eval $_antibody_path "bundle < $DOTFILES/zsh_plugins_linux.txt")
+      source <(eval $_antibody_path "bundle < $DOTFILES/antibody/zsh_plugins_linux.txt")
     ;; 
   esac
 fi
@@ -83,12 +83,12 @@ compinit -i
 
 unset _antibody_path
 
-if [ -f $DOTFILES/colors.zsh ]; then
-    source $DOTFILES/colors.zsh
+if [ -f $DOTFILES/sh/colors.zsh ]; then
+    source $DOTFILES/sh/colors.zsh
 fi
 
-if [ -f $DOTFILES/aliases.zsh ]; then
-    source $DOTFILES/aliases.zsh
+if [ -f $DOTFILES/sh/aliases.zsh ]; then
+    source $DOTFILES/sh/aliases.zsh
 fi
 
 if [ -f $HOME/.me.zsh ]; then
