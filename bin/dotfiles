@@ -76,8 +76,7 @@ def symlinkFolder(orig, dest, convert2DotFiles = False, filterList = [], filterE
         while True:
             print(curPos + " alredy exists in your home directory!")
             try:
-                import six
-                _input = six.moves.input("Would you to substitute the existing file/directory? (y/n):\n").lower()
+                _input = raw_input("Would you to substitute the existing file/directory? (y/n):\n").lower()
             except:
                 _input = input("Would you to substitute the existing file/directory? (y/n):\n").lower()
 
