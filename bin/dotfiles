@@ -14,10 +14,10 @@ def checkCreateDir(dir):
     if not os.path.exists(dir):
         os.makedirs(dir)
 
-def updateAntigen(curdir):
-    antigenurl = "https://raw.githubusercontent.com/zsh-users/antigen/master/bin/antigen.zsh"
+# def updateAntigen(curdir):
+#     antigenurl = "https://raw.githubusercontent.com/zsh-users/antigen/master/bin/antigen.zsh"
 
-    downloadFile(antigenurl, curdir + "/antigen.zsh")
+#     downloadFile(antigenurl, curdir + "/antigen.zsh")
 
 def diffDirectories(orig, mirror):
     result = [[],[]]
@@ -72,14 +72,14 @@ def symlinkFolder(orig, dest, convert2DotFiles = False, filterList = [], filterE
             linkPos = os.path.join(orig, f)
 
             os.symlink(linkPos, curPos)
-            print "Symlink created: " + curPos
+            print("Symlink created: " + curPos)
 
     for i in range(len(existingFiles[0])):
         curPos = os.path.join(dest, destList[existingFiles[1][i]])
         linkPos = os.path.join(orig, origList[existingFiles[0][i]])
 
         while True:
-            print curPos + " alredy exists in your home directory!"
+            print(curPos + " alredy exists in your home directory!")
             input = raw_input("Would you to substitute the existing file/directory? (y/n):\n").lower()
 
             if input == "n":
@@ -91,13 +91,13 @@ def symlinkFolder(orig, dest, convert2DotFiles = False, filterList = [], filterE
                     else:
                         shutil.rmtree(curPos)
                 except OSError as e:
-                    print e
+                    print(e)
 
                 os.symlink(linkPos, curPos)
-                print curPos + " created."
+                print(curPos + " created.")
                 break
             else:
-                print "Invalid answer. What do you mean? (y/n)"
+                print("Invalid answer. What do you mean? (y/n)")
                 continue
 
 def main():
@@ -119,35 +119,35 @@ def main():
         parser.error("Incorrect usage. Check help with --help.")
 
     if opts.update:
-        print "Updating antigen..."
+        # print("Updating antigen..."
 
-        curdir = os.environ['DOTFILES']
-        updateAntigen(curdir)
+        # curdir = os.environ['DOTFILES']
+        # updateAntigen(curdir)
 
-        print "...Done!"
+        # print("...Done!"
 
-        print "Updating main..."
+        print("Updating main...")
 
         subprocess.check_call(["git", "pull"])
 
-        print "...Done!"
+        print("...Done!")
 
     else:
-        print "Symlinking dotfiles..."
+        print("Symlinking dotfiles...")
 
-        filterList = [".DS_Store", ".git", ".gitignore", "winconf", "macconf", "bash_wsl", ".history", ".vscode", "dir_colors", "readme.md", "ssh"]
-        filterExt = [".zsh"]
+        filterList = [".DS_Store", ".git", ".gitignore", ".history", "antibody", "winconf", "sh", "readme.md", "ssh"]
+        filterExt = []
         symlinkFolder(os.environ['DOTFILES'], os.environ['HOME'], True, filterList, filterExt)
 
-        print "...Done!"
+        print("...Done!")
 
         if platform.system() == 'Darwin':
-            print "Symlinking lauch daemon updating job..."
+            print("Symlinking lauch daemon updating job...")
 
             os.symlink(os.path.join(os.environ['DOTFILES'], 'macconf', 'com.rightright.dotfiles.plist'),
                 os.path.join(os.environ['HOME'], 'Library/LaunchAgents/com.rightright.dotfiles.plist'))
 
-            print "...Done!"
+            print("...Done!")
 
 if __name__ == "__main__":
     os.chdir(os.environ['DOTFILES'])
