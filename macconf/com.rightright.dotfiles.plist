@@ -8,7 +8,7 @@
 	<array>
 		<string>zsh</string>
 		<string>-c</string>
-		<string>"$HOME/.dotfiles/bin/dotfiles_launchd"</string>
+		<string>"$HOME/.dotfiles/macconf/dotfiles_launchd"</string>
 	</array>
 	<key>StartInterval</key>
 	<integer>3600</integer>

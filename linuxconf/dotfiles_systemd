@@ -1,0 +1,3 @@
+> /tmp/dotfilesupdate.out
+export DOTFILES=$HOME/.dotfiles
+/usr/bin/python $DOTFILES/bin/dotfiles > /tmp/dotfiles.out

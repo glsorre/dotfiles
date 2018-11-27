@@ -1,0 +1,7 @@
+[Unit]
+Description=Updates $HOME/.dotfiles
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c %h/.dotfiles/linuxconf/dotfiles_systemd
+

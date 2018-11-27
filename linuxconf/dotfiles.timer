@@ -1,0 +1,6 @@
+[Unit]
+Description=Run dotfile.service every 60 minutes
+
+[Timer]
+OnCalendar=*:0/59
+
