@@ -14,11 +14,6 @@ def checkCreateDir(dir):
     if not os.path.exists(dir):
         os.makedirs(dir)
 
-# def updateAntigen(curdir):
-#     antigenurl = "https://raw.githubusercontent.com/zsh-users/antigen/master/bin/antigen.zsh"
-
-#     downloadFile(antigenurl, curdir + "/antigen.zsh")
-
 def diffDirectories(orig, mirror):
     result = [[],[]]
 
@@ -80,11 +75,15 @@ def symlinkFolder(orig, dest, convert2DotFiles = False, filterList = [], filterE
 
         while True:
             print(curPos + " alredy exists in your home directory!")
-            input = raw_input("Would you to substitute the existing file/directory? (y/n):\n").lower()
+            try:
+                import six
+                _input = six.moves.input("Would you to substitute the existing file/directory? (y/n):\n").lower()
+            except:
+                _input = input("Would you to substitute the existing file/directory? (y/n):\n").lower()
 
-            if input == "n":
+            if _input == "n":
                 break
-            elif input == "y":
+            elif _input == "y":
                 try:
                     if os.path.islink(curPos) or os.path.isfile(curPos):
                         os.remove(curPos)
@@ -119,13 +118,6 @@ def main():
         parser.error("Incorrect usage. Check help with --help.")
 
     if opts.update:
-        # print("Updating antigen..."
-
-        # curdir = os.environ['DOTFILES']
-        # updateAntigen(curdir)
-
-        # print("...Done!"
-
         print("Updating main...")
 
         subprocess.check_call(["git", "pull"])
@@ -135,13 +127,13 @@ def main():
     else:
         print("Symlinking dotfiles...")
 
-        filterList = [".DS_Store", ".git", ".gitignore", ".history", "antibody", "winconf", "sh", "readme.md", "ssh"]
+        filterList = [".DS_Store", ".git", ".gitignore", ".history", "antibody", "macconf", "winconf", "sh", "readme.md", "ssh", ".vscode"]
         filterExt = []
         symlinkFolder(os.environ['DOTFILES'], os.environ['HOME'], True, filterList, filterExt)
 
         print("...Done!")
 
-        if platform.system() == 'Darwin':
+        if platform.system() == 'Darwin' and not os.path.exists(os.path.join(os.environ['HOME'], 'Library/LaunchAgents/com.rightright.dotfiles.plist')):
             print("Symlinking lauch daemon updating job...")
 
             os.symlink(os.path.join(os.environ['DOTFILES'], 'macconf', 'com.rightright.dotfiles.plist'),
