@@ -71,11 +71,11 @@ if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
 
   case `uname` in
     Darwin)
-      plugins+(osx)
+      plugins+=(osx)
       source <(eval $_antibody_path "bundle < $DOTFILES/antibody/zsh_plugins_mac.txt")
     ;;
     Linux)
-      plugins+(ubuntu)
+      plugins+=(ubuntu)
       source <(eval $_antibody_path "bundle < $DOTFILES/antibody/zsh_plugins_linux.txt")
     ;; 
   esac
