@@ -27,3 +27,4 @@ for module in vboxdrv vboxnetflt vboxnetadp vboxpci; do
 # (Optional) Shred private key
 echo
 #shred -vfuz MOK.priv
+
