@@ -25,16 +25,21 @@ case `uname` in
     eval `dircolors $DOTFILES/sh/dir_colors`
     
     # ssh-agent configuration
-    if [ -z "$(pgrep ssh-agent)" ]; then
-        rm -rf /tmp/ssh-*
-        eval $(ssh-agent -s) > /dev/null
-    else
-        export SSH_AGENT_PID=$(pgrep ssh-agent)
-        export SSH_AUTH_SOCK=$(find /tmp/ssh-* -name "agent.*")
-    fi
+    #if [ -z "$(pgrep ssh-agent)" ]; then
+    #    rm -rf /tmp/ssh-*
+    #    eval $(ssh-agent -s) > /dev/null
+    #else
+    #    export SSH_AGENT_PID=$(pgrep ssh-agent)
+    #    export SSH_AUTH_SOCK=$(find /tmp/ssh-* -name "agent.*")
+    #fi
     
-    if [ "$(ssh-add -l)" = "The agent has no identities." ]; then
-        ssh-add
+    #if [ "$(ssh-add -l)" = "The agent has no identities." ]; then
+    #    ssh-add
+    #fi
+
+    test -f /usr/bin/keychain && /usr/bin/keychain -q id_rsa
+    if [ -f $HOME/.keychain/`uname -n`-sh ]; then
+      source $HOME/.keychain/`uname -n`-sh
     fi
     
     umask 002
