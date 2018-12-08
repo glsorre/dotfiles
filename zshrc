@@ -21,7 +21,7 @@ case `uname` in
   ;;
   Linux)
     test -d /home/linuxbrew/.linuxbrew && PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
-    #eval "$(pyenv init -)"
+    test -d /opt/bin && PATH="/opt/bin:$PATH"
     eval `dircolors $DOTFILES/sh/dir_colors`
     
     # ssh-agent configuration
