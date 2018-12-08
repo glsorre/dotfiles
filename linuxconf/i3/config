@@ -6,7 +6,7 @@
 #
 
 exec --no-startup-id dbus-launch nm-applet
-exec --no-startup-id dbus-launch gnome-volume-control-applet
+exec --no-startup-id feh --bg-scale ~/Pictures/i3wm_wallpaper.jpg
 
 #exec_always --no-startup-id xrandr --dpi 180
 
