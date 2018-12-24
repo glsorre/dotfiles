@@ -7,6 +7,7 @@ alias numFiles='echo $(ls -1 | wc -l)'      # numFiles:     Count of non-hidden 
 alias cask="brew cask"
 alias la="ls -a"
 alias l="ls -la"
+alias cleanbrew="brew cleanup -s"
 mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and jumps inside
 ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
 zipf () { zip -r "$1".zip "$1" ; }          # zipf:         To create a ZIP archive of a folder
@@ -14,11 +15,10 @@ zipf () { zip -r "$1".zip "$1" ; }          # zipf:         To create a ZIP arch
 case `uname` in
   Darwin)
     # commands for OS X go here
-    alias cleanbrew="brew cleanup -s"
     alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
   ;;
   Linux)
-    alias cleanbrew="brew cleanup -s"
+    alias f="nohup nautilus -w . > /dev/null &"
   ;;
 esac
 

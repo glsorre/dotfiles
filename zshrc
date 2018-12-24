@@ -61,7 +61,7 @@ if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
   pip
   pyenv
   npm
-  npx
+  nvm
   git
   git-flow
   command-not-found
