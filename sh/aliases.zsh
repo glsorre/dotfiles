@@ -4,7 +4,6 @@ alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable 
 alias npmls="npm ls --depth 0 -g"
 alias npmout="npm outdated --depth 0 -g"
 alias numFiles='echo $(ls -1 | wc -l)'      # numFiles:     Count of non-hidden files in current dir
-alias cask="brew cask"
 alias la="ls -a"
 alias l="ls -la"
 alias cleanbrew="brew cleanup -s"
@@ -16,6 +15,7 @@ case `uname` in
   Darwin)
     # commands for OS X go here
     alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
+    alias cask="brew cask"
   ;;
   Linux)
     alias f="nohup nautilus -w . > /dev/null &"
