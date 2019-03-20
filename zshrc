@@ -70,6 +70,7 @@ if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
   aws
   docker
   docker-compose
+  history-substring-search
   )
  
   source <($_antibody_path init)
