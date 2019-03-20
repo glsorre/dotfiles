@@ -15,3 +15,4 @@ To install:
     fi
     ```
 
+- for **linux** symlink `dotfiles.service` and `dotfiles.timer` in `~/.config/systemd/user`
