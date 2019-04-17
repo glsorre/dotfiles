@@ -74,6 +74,7 @@ if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
   minikube
   helm
   history-substring-search
+  tmux
   )
  
   source <($_antibody_path init)
