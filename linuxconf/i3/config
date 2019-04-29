@@ -162,7 +162,6 @@ bar {
         status_command i3status
 }
 
-exec --no-startup-id xinput set-prop "DELL07E6:00 06CB:76AF Touchpad" "libinput Natural Scrolling Enabled" 1
-exec --no-startup-id xinput set-prop "DELL07E6:00 06CB:76AF Touchpad" "libinput Tapping Enabled" 1
+exec --no-startup-id compton
 
 exec i3
