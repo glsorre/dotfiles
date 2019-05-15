@@ -73,7 +73,7 @@ if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
   kubectl
   minikube
   helm
-  history-substring-search
+#  history-substring-search
   tmux
   )
  
