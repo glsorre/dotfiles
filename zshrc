@@ -75,6 +75,7 @@ if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
   helm
 #  history-substring-search
   tmux
+  jenv
   )
  
   source <($_antibody_path init)
