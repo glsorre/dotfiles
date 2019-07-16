@@ -76,6 +76,7 @@ if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
 #  history-substring-search
   tmux
   jenv
+  mvn
   )
  
   source <($_antibody_path init)
@@ -114,7 +115,7 @@ fi
 
 # ORDER
 SPACESHIP_PROMPT_ORDER=(
-  time          # Time stampts section
+  time          # Time stamps section
   user          # Username section
   dir           # Current directory section
   host          # Hostname section
@@ -139,8 +140,10 @@ SPACESHIP_PROMPT_ORDER=(
   dotnet        # .NET section
   ember         # Ember.js section
   kubecontext   # Kubectl context section
+  terraform     # Terraform workspace section
   exec_time     # Execution time
   line_sep      # Line break
+  battery       # Battery level and status
   vi_mode       # Vi-mode indicator
   jobs          # Background jobs indicator
   exit_code     # Exit code section

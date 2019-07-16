@@ -13,5 +13,9 @@ let &t_te.="\e[0 q"
 
 let g:airline_theme='solarized'
 
+syntax enable
+set background=light
+colorscheme solarized
+
 set ttymouse=xterm2
 set mouse=a
