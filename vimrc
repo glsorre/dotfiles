@@ -4,8 +4,11 @@ Plug 'vim-airline/vim-airline'
 Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline-themes'
-Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'ciaranm/detectindent'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 let &t_ti.="\e[1 q"
