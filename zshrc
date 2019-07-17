@@ -77,6 +77,7 @@ if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
   tmux
   jenv
   mvn
+  fzf
   )
  
   source <($_antibody_path init)
