@@ -65,7 +65,6 @@ if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
   git
   git-flow
   command-not-found
-  colored-man-pages
   extract
   aws
   docker

@@ -3,7 +3,7 @@ robbyrussell/oh-my-zsh
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions
 
-marzocchi/zsh-notify
+djui/alias-tips
 zdharma/fast-syntax-highlighting
-
-denysdovhan/spaceship-prompt
+mafredri/zsh-async
+sindresorhus/pure
