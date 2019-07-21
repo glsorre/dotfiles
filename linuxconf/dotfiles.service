@@ -5,3 +5,6 @@ Description=Updates $HOME/.dotfiles
 Type=oneshot
 ExecStart=/bin/sh -c %h/.dotfiles/linuxconf/dotfiles_systemd
 
+[Install]
+WantedBy=default.target
+
