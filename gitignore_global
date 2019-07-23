@@ -65,3 +65,6 @@ $RECYCLE.BIN/
 # Local editor configurations
 .vs_code
 .idea
+
+nb-configuration.xml
+nbactions.xml
