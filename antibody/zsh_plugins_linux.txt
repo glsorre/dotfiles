@@ -7,3 +7,4 @@ djui/alias-tips
 zdharma/fast-syntax-highlighting
 mafredri/zsh-async
 sindresorhus/pure
+caarlos0/zsh-mkc

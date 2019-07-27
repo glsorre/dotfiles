@@ -55,6 +55,7 @@ fi
 if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
   DISABLE_AUTO_UPDATE=true
   ZSH=`antibody home`
+  ZSH_THEME=""
   ZSH+="/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
   plugins=(
   brew
@@ -77,6 +78,7 @@ if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
   jenv
   mvn
   fzf
+  terraform
   )
  
   source <($_antibody_path init)
@@ -105,6 +107,10 @@ if [ -f $DOTFILES/sh/aliases.zsh ]; then
     source $DOTFILES/sh/aliases.zsh
 fi
 
+if [ -f $DOTFILES/sh/precmd_decorator.zsh ]; then
+    source $DOTFILES/sh/precmd_decorator.zsh
+fi
+
 if [ -f $HOME/.me.zsh ]; then
     source $HOME/.me.zsh
 fi
@@ -112,6 +118,7 @@ fi
 if [ -f /usr/local/miniconda3/etc/profile.d/conda.sh ]; then
     source /usr/local/miniconda3/etc/profile.d/conda.sh
 fi
+
 
 # ORDER
 SPACESHIP_PROMPT_ORDER=(
