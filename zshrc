@@ -70,7 +70,7 @@ if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
   aws
   docker
   docker-compose
-  kubectl
+#  kubectl
   minikube
   helm
 #  history-substring-search
