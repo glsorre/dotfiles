@@ -96,6 +96,7 @@ if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
 fi
 
 compinit -i
+bindkey -v
 export FZF_DEFAULT_OPTS="--color light --preview 'bat {}' --inline-info"
 unset _antibody_path
 
