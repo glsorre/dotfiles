@@ -100,7 +100,7 @@ compinit -i
 
 if [ -f $DOTFILES/sh/bindkeys.zsh ]; then
     bindkey -v
-    source $DOTFILES/sh/colors.zsh
+    source $DOTFILES/sh/bindkeys.zsh
 fi
 
 if [ -f $DOTFILES/sh/colors.zsh ]; then
