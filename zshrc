@@ -12,6 +12,11 @@ export MANPATH="/usr/local/man:$MANPATH"
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+if [ -f $DOTFILES/sh/bindkeys.zsh ]; then
+    bindkey -v
+    source $DOTFILES/sh/bindkeys.zsh
+fi
+
 case `uname` in
   Darwin)
     # commands for OS X go here    
@@ -23,19 +28,6 @@ case `uname` in
     test -d /home/linuxbrew/.linuxbrew && PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
     test -d /opt/bin && PATH="/opt/bin:$PATH"
     eval `dircolors $DOTFILES/sh/dir_colors`
-    
-    # ssh-agent configuration
-    #if [ -z "$(pgrep ssh-agent)" ]; then
-    #    rm -rf /tmp/ssh-*
-    #    eval $(ssh-agent -s) > /dev/null
-    #else
-    #    export SSH_AGENT_PID=$(pgrep ssh-agent)
-    #    export SSH_AUTH_SOCK=$(find /tmp/ssh-* -name "agent.*")
-    #fi
-    
-    #if [ "$(ssh-add -l)" = "The agent has no identities." ]; then
-    #    ssh-add
-    #fi
 
     test -f /usr/bin/keychain && /usr/bin/keychain -q id_rsa
     if [ -f $HOME/.keychain/`uname -n`-sh ]; then
@@ -97,11 +89,6 @@ fi
 unset _antibody_path
 
 compinit -i
-
-if [ -f $DOTFILES/sh/bindkeys.zsh ]; then
-    bindkey -v
-    source $DOTFILES/sh/bindkeys.zsh
-fi
 
 if [ -f $DOTFILES/sh/colors.zsh ]; then
     source $DOTFILES/sh/colors.zsh
