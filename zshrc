@@ -12,11 +12,6 @@ export MANPATH="/usr/local/man:$MANPATH"
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-if [ -f $DOTFILES/sh/bindkeys.zsh ]; then
-    bindkey -v
-    source $DOTFILES/sh/bindkeys.zsh
-fi
-
 case `uname` in
   Darwin)
     # commands for OS X go here    
@@ -38,8 +33,6 @@ case `uname` in
   ;;
 esac
 
-autoload -Uz compinit
-
 if which antibody &>/dev/null; then
   _antibody_path=$(which antibody 2>/dev/null)
 fi
@@ -50,14 +43,13 @@ if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
   ZSH_THEME=""
   ZSH+="/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
   plugins=(
+  vi-mode
   brew
   pip
   pyenv
   npm
   nvm
   git
-  git-flow
-  command-not-found
   extract
   aws
   docker
@@ -68,8 +60,6 @@ if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
   fzf
   terraform
   )
- 
-  source <($_antibody_path init)
 
   case `uname` in
     Darwin)
@@ -81,10 +71,19 @@ if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
       source <(eval $_antibody_path "bundle < $DOTFILES/antibody/zsh_plugins_linux.txt")
     ;; 
   esac
+
+  source <($_antibody_path init)
 fi
+
 unset _antibody_path
 
+autoload -Uz compinit
 compinit -i
+
+if [ -f $DOTFILES/sh/bindkeys.zsh ]; then
+  unset RPS1 # delete oh-my-zsh vi-mode visualization
+  source $DOTFILES/sh/bindkeys.zsh
+fi
 
 if [ -f $DOTFILES/sh/colors.zsh ]; then
     source $DOTFILES/sh/colors.zsh
