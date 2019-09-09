@@ -3,9 +3,10 @@ robbyrussell/oh-my-zsh
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions
 
-djui/alias-tips
-zdharma/fast-syntax-highlighting
 mafredri/zsh-async
 sindresorhus/pure
-caarlos0/zsh-mkc
+
+zdharma/fast-syntax-highlighting
 supercrabtree/k
+djui/alias-tips
+caarlos0/zsh-mkc
