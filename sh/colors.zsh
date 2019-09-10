@@ -17,3 +17,16 @@ if [ -f $HOME/.local/bin/pygmentize ]; then
 	export LESSOPEN="| $HOME/.local/bin/pygmentize %s"
 fi
 
+export K_SIZELIMITS_TO_COLOR=(
+	 10240  64
+    102400  136
+	262144  166
+	524288  160
+)
+
+export K_FILEAGES_TO_COLOR=(
+	3600 244
+	86400 245
+	15724800 241
+	31449600 240
+)
