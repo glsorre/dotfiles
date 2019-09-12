@@ -3,7 +3,7 @@ robbyrussell/oh-my-zsh
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions
 
-supercrabtree/k
+glsorre/k
 djui/alias-tips
 caarlos0/zsh-mkc
 
