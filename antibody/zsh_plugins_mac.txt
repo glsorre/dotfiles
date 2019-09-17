@@ -7,7 +7,6 @@ glsorre/k
 djui/alias-tips
 caarlos0/zsh-mkc
 
-mafredri/zsh-async
-sindresorhus/pure
+eendroroy/alien-minimal
 
 zdharma/fast-syntax-highlighting
