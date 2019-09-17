@@ -1,5 +1,5 @@
 precmd_decorator() {
-    STRING=""
+    STRING="\n"
     for i in $PRECMD_ENRICHER_DECORATOR_VENVS; do
         STRING+="${i}: ${(P)i} | "
     done
