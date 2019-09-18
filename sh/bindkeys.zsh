@@ -34,9 +34,6 @@ key=(
 [[ -n "${key[Home]}"      ]] && bindkey -M vicmd "${key[Home]}" beginning-of-line
 [[ -n "${key[End]}"       ]] && bindkey -M vicmd "${key[End]}" end-of-line
 
-bindkey -M vicmd "k" up-line-or-beginning-search
-bindkey -M vicmd "j" down-line-or-beginning-search
-
 autoload -U history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
@@ -45,5 +42,5 @@ bindkey "^[[B" history-beginning-search-forward-end
 bindkey "^k" vi-kill-eol
 
 # ctrl+left/right : move word by word (backward/forward)
-bindkey '^[[1;5D' backward-word
-bindkey '^[[1;5C' forward-word
+bindkey "^[[1;5D" backward-word
+bindkey "^[[1;5C" forward-word

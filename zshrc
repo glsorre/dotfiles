@@ -84,11 +84,6 @@ unset _antibody_path
 autoload -Uz compinit
 compinit -i
 
-if [ -f $DOTFILES/sh/bindkeys.zsh ]; then
-  unset RPS1 # delete oh-my-zsh vi-mode visualization
-  source $DOTFILES/sh/bindkeys.zsh
-fi
-
 if [ -f $DOTFILES/sh/colors.zsh ]; then
     source $DOTFILES/sh/colors.zsh
 fi
@@ -107,6 +102,11 @@ fi
 
 if [ -f /usr/local/miniconda3/etc/profile.d/conda.sh ]; then
     source /usr/local/miniconda3/etc/profile.d/conda.sh
+fi
+
+if [ -f $DOTFILES/sh/bindkeys.zsh ]; then
+  unset RPS1 # delete oh-my-zsh vi-mode visualization
+  source $DOTFILES/sh/bindkeys.zsh
 fi
 
 export FZF_DEFAULT_OPTS="--color light --preview 'bat {}' --inline-info"
