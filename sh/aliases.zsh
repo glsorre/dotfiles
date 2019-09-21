@@ -17,6 +17,6 @@ case `uname` in
     alias cask="brew cask"
   ;;
   Linux)
-    alias f="nohup nautilus -w . > /dev/null &"
+    alias f="nohup nautilus . > /dev/null 2>&1 &"
   ;;
 esac
