@@ -93,10 +93,6 @@ if [ -f $DOTFILES/sh/aliases.zsh ]; then
     source $DOTFILES/sh/aliases.zsh
 fi
 
-if [ -f $DOTFILES/sh/precmd_decorator.zsh ]; then
-    source $DOTFILES/sh/precmd_decorator.zsh
-fi
-
 if [ -f $HOME/.me.zsh ]; then
     source $HOME/.me.zsh
 fi
