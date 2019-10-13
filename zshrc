@@ -31,9 +31,6 @@ case `uname` in
     
     umask 002
 
-    if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-      source /etc/profile.d/vte-2.91.sh
-    fi
   ;;
 esac
 
@@ -72,7 +69,7 @@ if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
       source <(eval $_antibody_path "bundle < $DOTFILES/antibody/zsh_plugins_mac.txt")
     ;;
     Linux)
-      plugins+=(ubuntu)
+      plugins+=(archlinux)
       source <(eval $_antibody_path "bundle < $DOTFILES/antibody/zsh_plugins_linux.txt")
     ;; 
   esac
