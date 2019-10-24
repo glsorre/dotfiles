@@ -24,9 +24,13 @@ case `uname` in
     test -d /opt/bin && PATH="/opt/bin:$PATH"
     eval `dircolors $DOTFILES/sh/dir_colors`
 
-    test -f /usr/bin/keychain && /usr/bin/keychain -q id_rsa
-    if [ -f $HOME/.keychain/`uname -n`-sh ]; then
-      source $HOME/.keychain/`uname -n`-sh
+    #test -f /usr/bin/keychain && /usr/bin/keychain -q id_rsa
+    #if [ -f $HOME/.keychain/`uname -n`-sh ]; then
+    #  source $HOME/.keychain/`uname -n`-sh
+    #fi
+    
+    if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+        source /etc/profile.d/vte.sh
     fi
     
     umask 002
@@ -56,7 +60,6 @@ if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
   docker
   docker-compose
   tmux
-  jenv
   mvn
   fzf
   terraform
@@ -65,7 +68,7 @@ if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
 
   case `uname` in
     Darwin)
-      plugins+=(osx)
+      plugins+=(osx jenv)
       source <(eval $_antibody_path "bundle < $DOTFILES/antibody/zsh_plugins_mac.txt")
     ;;
     Linux)
