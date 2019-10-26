@@ -9,7 +9,7 @@ URxvt.geometry:		80x25
 URxvt.font:             xft:Monoid Retina:size=11:antialias=true:hinting=true,\
 			xft:PixelJoy,\
 			xft:Symbola
-URxvt.letterSpace: -3
+URxvt.letterSpace: -5
 URxvt.perl-ext-common:  default,clipboard,matcher
 URxvt.clipboard.autocopy: true
 URxvt.keysym.M-c: 	perl:clipboard:copy

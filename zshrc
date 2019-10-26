@@ -53,6 +53,7 @@ if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
   pip
   pyenv
   npm
+  yarn
   nvm
   git
   extract
