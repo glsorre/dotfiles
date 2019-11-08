@@ -20,3 +20,32 @@ case `uname` in
     alias f="nohup nautilus . > /dev/null 2>&1 &"
   ;;
 esac
+
+if (( $+commands[exa] )); then
+  exa_params=('--git' '--icons' '--classify' '--group-directories-first' '--time-style=long-iso' '--group' '--color-scale')
+
+  unalias ls
+  unalias l
+  unalias la
+  unalias ll
+  
+  function ls(){
+    exa "${exa_params[@]}" $@
+  }
+  compdef ls=exa
+  
+  function l(){
+    exa --git-ignore "${exa_params[@]}" $@
+  }
+  compdef l=exa
+  
+  function la(){
+    exa -a "${exa_params[@]}" $@
+  }
+  compdef la=exa
+  
+  function ll(){
+    exa --header --long "${exa_params[@]}" $@
+  }
+  compdef ll=exa
+fi
