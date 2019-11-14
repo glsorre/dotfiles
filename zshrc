@@ -65,6 +65,7 @@ if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
   fzf
   terraform
   tig
+  fd
   )
 
   case `uname` in

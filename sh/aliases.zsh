@@ -35,7 +35,7 @@ if (( $+commands[exa] )); then
   compdef ls=exa
   
   function l(){
-    exa --git-ignore "${exa_params[@]}" $@
+    exa -la --grid "${exa_params[@]}" $@
   }
   compdef l=exa
   
@@ -45,7 +45,7 @@ if (( $+commands[exa] )); then
   compdef la=exa
   
   function ll(){
-    exa --header --long "${exa_params[@]}" $@
+    exa -la --git-ignore --grid "${exa_params[@]}" $@
   }
   compdef ll=exa
 fi
