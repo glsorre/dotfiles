@@ -1,4 +1,5 @@
 alias c='clear'                             # c:            Clear terminal display
+alias ck="printf '\033[2J\033[3J\033[1;1H'"
 alias which='type'                          # which:        Find executables
 alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable Paths
 alias npmls="npm ls --depth 0 -g"
