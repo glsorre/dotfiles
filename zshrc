@@ -24,11 +24,12 @@ case `uname` in
     test -d /opt/bin && PATH="/opt/bin:$PATH"
     eval `dircolors $DOTFILES/sh/dir_colors`
 
-    #test -f /usr/bin/keychain && /usr/bin/keychain -q id_rsa
-    #if [ -f $HOME/.keychain/`uname -n`-sh ]; then
-    #  source $HOME/.keychain/`uname -n`-sh
-    #fi
-    
+    if [ -n "$DESKTOP_SESSION" ];then
+      	eval $(gnome-keyring-daemon --start)
+	      export SSH_AUTH_SOCK
+    fi
+    test -f /usr/bin/keychain && eval $(/usr/bin/keychain --eval --quiet --systemd id_rsa)
+
     if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
         source /etc/profile.d/vte.sh
     fi
