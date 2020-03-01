@@ -110,4 +110,3 @@ if [ -f $DOTFILES/sh/bindkeys.zsh ]; then
 fi
 
 export FZF_DEFAULT_OPTS="--color light --preview 'bat {}' --inline-info"
-
