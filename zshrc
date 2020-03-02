@@ -116,4 +116,10 @@ if typeset -f sdk > /dev/null; then
     compdef _sdk sdk
 fi
 
+if [ -f /home/glsorre/.local/bin/pipx ]; then
+    autoload -U bashcompinit
+    bashcompinit
+    eval "$(register-python-argcomplete pipx)"
+fi
+
 export FZF_DEFAULT_OPTS="--color light --preview 'bat {}' --inline-info"
