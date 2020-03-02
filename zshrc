@@ -35,7 +35,10 @@ case `uname` in
     fi
     
     umask 002
-
+    
+    if [ -f  $HOME/.sdkman/bin/sdkman-init.sh ]; then
+	source "$HOME/.sdkman/bin/sdkman-init.sh"
+    fi
   ;;
 esac
 
@@ -75,7 +78,7 @@ if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
       source <(eval $_antibody_path "bundle < $DOTFILES/antibody/zsh_plugins_mac.txt")
     ;;
     Linux)
-      plugins+=(archlinux)
+      plugins+=(sdk)
       source <(eval $_antibody_path "bundle < $DOTFILES/antibody/zsh_plugins_linux.txt")
     ;; 
   esac
@@ -105,8 +108,12 @@ if [ -f /usr/local/miniconda3/etc/profile.d/conda.sh ]; then
 fi
 
 if [ -f $DOTFILES/sh/bindkeys.zsh ]; then
-  unset RPS1 # delete oh-my-zsh vi-mode visualization
-  source $DOTFILES/sh/bindkeys.zsh
+    unset RPS1 # delete oh-my-zsh vi-mode visualization
+    source $DOTFILES/sh/bindkeys.zsh
+fi
+
+if typeset -f sdk > /dev/null; then
+    compdef _sdk sdk
 fi
 
 export FZF_DEFAULT_OPTS="--color light --preview 'bat {}' --inline-info"
