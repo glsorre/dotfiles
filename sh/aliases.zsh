@@ -18,7 +18,11 @@ case `uname` in
     alias cask="brew cask"
   ;;
   Linux)
-    alias f="nohup pcmanfm . > /dev/null 2>&1 &"
+    if grep -q microsoft /proc/version; then
+      alias f="explorer.exe ."
+    else
+      alias f="nohup nautilus . > /dev/null 2>&1 &"
+    fi
   ;;
 esac
 
