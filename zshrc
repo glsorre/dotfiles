@@ -28,7 +28,7 @@ case `uname` in
       	eval $(gnome-keyring-daemon --start)
 	      export SSH_AUTH_SOCK
     fi
-    test -f /usr/bin/keychain && eval $(/usr/bin/keychain --eval --quiet --systemd id_rsa)
+    test -f /usr/bin/keychain && eval $(/usr/bin/keychain --eval --quiet id_rsa)
 
     if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
         source /etc/profile.d/vte.sh
