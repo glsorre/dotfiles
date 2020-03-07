@@ -8,3 +8,4 @@ chmod u+x ${SSH_ASKPASS_SCRIPT}
 export DISPLAY="0"
 export SSH_ASKPASS=${SSH_ASKPASS_SCRIPT}
 /usr/bin/keychain --clear id_rsa
+rm ${SSH_ASKPASS_SCRIPT}
