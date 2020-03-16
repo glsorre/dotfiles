@@ -1,0 +1,12 @@
+robbyrussell/oh-my-zsh
+
+#zsh-users/zsh-autosuggestions
+zsh-users/zsh-completions
+
+glsorre/k
+#djui/alias-tips
+caarlos0/zsh-mkc
+
+glsorre/minimal
+
+zdharma/fast-syntax-highlighting
