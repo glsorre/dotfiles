@@ -1,12 +1,10 @@
 robbyrussell/oh-my-zsh
 
-#zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions
 
-glsorre/k
-#djui/alias-tips
 caarlos0/zsh-mkc
 
-glsorre/minimal
+mafredri/zsh-async branch:no-zpty
+sindresorhus/pure
 
 zdharma/fast-syntax-highlighting
