@@ -116,9 +116,7 @@ if typeset -f sdk > /dev/null; then
     compdef _sdk sdk
 fi
 
-if [ -f /home/glsorre/.local/bin/pipx ]; then
-    autoload -U bashcompinit
-    bashcompinit
+if [ -f /home/glsorre/.local/bin/pipx ] || [ -f /usr/local/bin/pipx ]; then
     eval "$(register-python-argcomplete pipx)"
 fi
 
