@@ -1,6 +1,3 @@
-Host stash.hcom
-  Port 443
-
 Host *
   AddKeysToAgent yes
   UseKeychain yes
