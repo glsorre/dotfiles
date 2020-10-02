@@ -7,6 +7,6 @@ glsorre/k
 djui/alias-tips
 caarlos0/zsh-mkc
 
-/Users/gsorrentino/repo/personal/minimal
+glsorre/minimal
 
 zdharma/fast-syntax-highlighting
