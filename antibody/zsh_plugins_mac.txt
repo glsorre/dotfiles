@@ -6,6 +6,7 @@ zsh-users/zsh-completions
 glsorre/k
 djui/alias-tips
 caarlos0/zsh-mkc
+Tarrasch/zsh-bd
 
 glsorre/minimal
 

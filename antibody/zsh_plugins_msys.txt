@@ -3,6 +3,8 @@ robbyrussell/oh-my-zsh
 zsh-users/zsh-completions
 
 caarlos0/zsh-mkc
+Tarrasch/zsh-bd
+djui/alias-tips
 
 mafredri/zsh-async branch:no-zpty
 sindresorhus/pure
