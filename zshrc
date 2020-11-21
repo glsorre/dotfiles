@@ -120,4 +120,8 @@ if [ -f /home/glsorre/.local/bin/pipx ] || [ -f /usr/local/bin/pipx ]; then
     eval "$(register-python-argcomplete pipx)"
 fi
 
+if [ -f /home/glsorre/.local/bin/pipenv ] || [ -f /usr/local/bin/pipenv ]; then
+    export PIPENV_VERBOSITY=-1   
+fi
+
 export FZF_DEFAULT_OPTS="--color light --preview 'bat {}' --inline-info"
