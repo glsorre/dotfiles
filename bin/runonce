@@ -51,7 +51,8 @@ fi
 case $(uname) in
     Linux*)  MD5=md5sum;;
     Darwin*) MD5=md5;;
-    *)       echo "I only work on Linux and Darwin (so far :-)..."
+    MINGW64*) MD5=md5sum;;
+    *)       echo "I only work on Linux and Darwin and MSYS2 (so far :-)..."
              exit 1
              ;;
 esac

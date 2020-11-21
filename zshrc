@@ -12,7 +12,9 @@ export MANPATH="/usr/local/man:$MANPATH"
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-runonce -i 1440 ${DOTFILES}/bin/dotfiles.update 
+if [[ `uname` != MINGW64* ]]; then
+  runonce -i 1440 ${DOTFILES}/bin/dotfiles.update
+fi
 
 case `uname` in
   Darwin)
