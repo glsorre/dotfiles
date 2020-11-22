@@ -30,8 +30,8 @@ autoload -Uz promptinit; promptinit
 source <(antibody.exe init)
 source <(antibody.exe bundle < $HOME/.dotfiles/antibody/zsh_plugins_msys.txt)
 
-${DOTFILES}/bin/runonce ${DOTFILES}/bin/dotfiles.update
-
 export PATH=/c/ProgramData/DockerDesktop/version-bin:/c/Program\ Files/Docker/Docker/resources/bin:$HOME/AppData/Local/Programs/Microsoft\ VS\ Code\ Insiders/bin:$HOME/AppData/Local/Programs/Microsoft\ VS\ Code/bin:$HOME/AppData/Roaming/Python/Python38/Scripts:$HOME/.pyenv/pyenv-win/shims:$HOME/.pyenv/pyenv-win/bin:$PATH
 
 source $DOTFILES/winconf/sshagent.sh
+${DOTFILES}/bin/runonce ${DOTFILES}/bin/dotfiles.update
+
