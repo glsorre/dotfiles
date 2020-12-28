@@ -14,10 +14,8 @@ export LC_ALL=en_US.UTF-8
 
 case `uname` in
   Darwin)
-    # commands for OS X go here    
-    if [ -f $HOME/.iterm2_shell_integration.`basename $SHELL` ]; then
-      source $HOME/.iterm2_shell_integration.`basename $SHELL`
-    fi
+    # commands for OS X go here
+    test -e $HOME/.iterm2_shell_integration.zsh && source $HOME/.iterm2_shell_integration.zsh || true
   ;;
   Linux)
     test -d /home/linuxbrew/.linuxbrew && PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
