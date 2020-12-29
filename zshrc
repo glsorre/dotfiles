@@ -35,8 +35,10 @@ case `uname` in
     umask 002
     
     if [ -f  $HOME/.sdkman/bin/sdkman-init.sh ]; then
-	source "$HOME/.sdkman/bin/sdkman-init.sh"
+	    source "$HOME/.sdkman/bin/sdkman-init.sh"
     fi
+
+    export GPG_TTY=$(tty)
   ;;
 esac
 
