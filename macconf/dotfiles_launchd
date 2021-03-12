@@ -1,4 +1,0 @@
-> /tmp/dotfilesupdate.out
-> /tmp/dotfilesupdate.err
-export DOTFILES=$HOME/.dotfiles
-/usr/bin/python $DOTFILES/bin/dotfiles

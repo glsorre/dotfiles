@@ -1,9 +1,0 @@
-[Unit]
-Description=Run dotfile.service every 60 minutes
-
-[Timer]
-OnCalendar=hourly
-Persistent=True
-
-[Install]
-WantedBy=timers.target

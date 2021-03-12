@@ -1,4 +1,0 @@
-nitrogen --restore &
-compton & 
-tint2 &
-dbus-launch nm-applet
