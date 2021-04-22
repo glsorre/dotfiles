@@ -5,12 +5,3 @@ To install:
 - `curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
 
 - `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
-
-- for **wsl** add to .bashrc the following code
-    ```
-    if [ -t 1 ]; then
-        exec zsh
-    fi
-    ```
-
-- for **linux** symlink `dotfiles.service` and `dotfiles.timer` in `~/.config/systemd/user`
