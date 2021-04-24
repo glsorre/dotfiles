@@ -24,6 +24,9 @@ case `uname` in
       alias f="nohup nautilus . > /dev/null 2>&1 &"
     fi
   ;;
+  MINGW64*|MINGW32*|MSYS_NT*)
+    alias f="explorer.exe ."
+  ;;
 esac
 
 if (( $+commands[exa] )); then

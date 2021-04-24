@@ -14,7 +14,6 @@ export LC_ALL=en_US.UTF-8
 
 case `uname` in
   Darwin)
-    # commands for OS X go here
     test -e $HOME/.iterm2_shell_integration.zsh && source $HOME/.iterm2_shell_integration.zsh || true
   ;;
   Linux)
@@ -40,11 +39,11 @@ case `uname` in
 
     export GPG_TTY=$(tty)
   ;;
+  MINGW64*|MINGW32*|MSYS_NT*)
+    test -f $DOTFILES/winconf/sshagent.sh &&  source $DOTFILES/winconf/sshagent.sh
 esac
 
-if [[ `uname` != MINGW64* ]]; then
-  runonce -i 1440 ${DOTFILES}/bin/dotfiles.update
-fi
+runonce -i 1440 ${DOTFILES}/bin/dotfiles.update
 
 if which antibody &>/dev/null; then
   _antibody_path=$(which antibody 2>/dev/null)
@@ -70,7 +69,6 @@ if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
   docker-compose
   tmux
   mvn
-  fzf
   terraform
   tig
   fd
@@ -78,13 +76,17 @@ if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
 
   case `uname` in
     Darwin)
-      plugins+=(osx jenv)
+      plugins+=(osx jenv fzf)
       source <(eval $_antibody_path "bundle < $DOTFILES/antibody/zsh_plugins_mac.txt")
     ;;
     Linux)
-      plugins+=(sdk)
+      plugins+=(sdk fzf)
       source <(eval $_antibody_path "bundle < $DOTFILES/antibody/zsh_plugins_linux.txt")
-    ;; 
+    ;;
+    MINGW64*|MINGW32*|MSYS_NT*)
+      plugins+=()
+      source <(eval $_antibody_path "bundle < $DOTFILES/antibody/zsh_plugins_msys.txt")
+    ;;
   esac
 
   source <($_antibody_path init)
