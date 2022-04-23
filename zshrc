@@ -49,7 +49,7 @@ if which antibody &>/dev/null; then
   _antibody_path=$(which antibody 2>/dev/null)
 fi
 
-if [ -f /home/glsorre/.local/bin/pyenv ] || [ -f /usr/local/bin/pyenv ]; then
+if [ -f $HOME/.pyenv/bin/pyenv ] || [ -f $HOME/.local/bin/pyenv ] || [ -f /usr/local/bin/pyenv ]; then
     export PYENV_ROOT="$HOME/.pyenv"
     export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init --path)"
@@ -69,15 +69,11 @@ if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
   yarn
   nvm
   git
-  extract
   aws
   docker
   docker-compose
   tmux
-  mvn
-  terraform
   tig
-  fd
   )
 
   case `uname` in

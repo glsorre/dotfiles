@@ -30,7 +30,7 @@ case `uname` in
 esac
 
 if (( $+commands[exa] )); then
-  exa_params=('--git' '--icons' '--classify' '--group-directories-first' '--time-style=long-iso' '--group')
+  exa_params=('--icons' '--classify' '--group-directories-first' '--time-style=long-iso' '--group')
 
   unalias ls
   unalias l
