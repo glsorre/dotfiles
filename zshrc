@@ -27,7 +27,7 @@ case `uname` in
     fi
     test -f /usr/bin/keychain && eval $(/usr/bin/keychain --eval --quiet id_rsa)
 
-    if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+    if [ $TILIX_ID ]; then
         source /etc/profile.d/vte.sh
     fi
     
