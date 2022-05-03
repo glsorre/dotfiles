@@ -74,11 +74,12 @@ if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
   docker-compose
   tmux
   tig
+  flutter
   )
 
   case `uname` in
     Darwin)
-      plugins+=(osx jenv fzf)
+      plugins+=(macos fzf)
       source <(eval $_antibody_path "bundle < $DOTFILES/antibody/zsh_plugins_mac.txt")
     ;;
     Linux)
