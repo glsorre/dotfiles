@@ -6,7 +6,7 @@ export PAGER='less'
 
 setopt PROMPT_SUBST
 
-export PATH=$HOME/bin:$HOME/.bin:$HOME/.local/bin:$HOME/.yarn/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.bin:$HOME/.local/bin:$HOME/.yarn/bin:/usr/local/bin:/opt/homebrew/bin:$PATH
 export MANPATH="/usr/local/man:$MANPATH"
 
 export LANG=en_US.UTF-8
@@ -49,6 +49,10 @@ if which antibody &>/dev/null; then
   _antibody_path=$(which antibody 2>/dev/null)
 fi
 
+if which starship &>/dev/null; then
+  eval "$(starship init zsh)"
+fi
+
 if [ -f $HOME/.pyenv/bin/pyenv ] || [ -f $HOME/.local/bin/pyenv ] || [ -f /usr/local/bin/pyenv ]; then
     export PYENV_ROOT="$HOME/.pyenv"
     export PATH="$PYENV_ROOT/bin:$PATH"
@@ -61,7 +65,6 @@ if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
   ZSH_THEME=""
   ZSH+="/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
   plugins=(
-  vi-mode
   brew
   pip
   pyenv
@@ -72,7 +75,6 @@ if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
   aws
   docker
   docker-compose
-  tmux
   tig
   flutter
   )
@@ -131,6 +133,14 @@ fi
 
 if [ -f /home/glsorre/.local/bin/pipenv ] || [ -f /usr/local/bin/pipenv ]; then
     export PIPENV_VERBOSITY=-1   
+fi
+
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
 fi
 
 export FZF_DEFAULT_OPTS="--color light --preview 'bat {}' --inline-info"
