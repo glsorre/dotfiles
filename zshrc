@@ -1,12 +1,13 @@
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+export ZSH_PYENV_QUIET=true
 export DOTFILES=$HOME/.dotfiles
-export PYENV_VIRTUALENV_DISABLE_PROMPT=0
 export EDITOR='vim'
 export VISUAL='vim'
 export PAGER='less'
 
 setopt PROMPT_SUBST
 
-export PATH=$HOME/bin:$HOME/.bin:$HOME/.local/bin:$HOME/.yarn/bin:/usr/local/bin:/opt/homebrew/bin:$PATH
+export PATH=$HOME/bin:$HOME/.bin:$HOME/.local/bin:$PATH
 export MANPATH="/usr/local/man:$MANPATH"
 
 export LANG=en_US.UTF-8
@@ -43,29 +44,28 @@ case `uname` in
     test -f $DOTFILES/winconf/sshagent.sh &&  source $DOTFILES/winconf/sshagent.sh
 esac
 
-runonce -i 1440 ${DOTFILES}/bin/dotfiles.update
-
-if which antibody &>/dev/null; then
-  _antibody_path=$(which antibody 2>/dev/null)
+if [ -f /opt/homebrew/bin/antibody ]; then
+  _antibody_path=/opt/homebrew/bin/antibody
 fi
 
-if which starship &>/dev/null; then
-  eval "$(starship init zsh)"
+if [ -f /usr/local/bin/antibody ]; then
+  _antibody_path=/usr/local/bin/antibody
 fi
 
-if [ -f $HOME/.pyenv/bin/pyenv ] || [ -f $HOME/.local/bin/pyenv ] || [ -f /usr/local/bin/pyenv ]; then
-    export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init --path)"
+if [ -f $HOME/bin/antibody ]; then
+  _antibody_path=$HOME/bin/antibody
 fi
+
+runonce -i 1440 ${DOTFILES}/bin/dotfiles.update $_antibody_path
 
 if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
   DISABLE_AUTO_UPDATE=true
-  ZSH=`antibody home`
+  ZSH=`$_antibody_path home`
   ZSH_THEME=""
   ZSH+="/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
   plugins=(
   brew
+  python
   pip
   pyenv
   npm
@@ -78,6 +78,8 @@ if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
   tig
   flutter
   )
+
+  source <($_antibody_path init)
 
   case `uname` in
     Darwin)
@@ -93,11 +95,13 @@ if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
       source <(eval $_antibody_path "bundle < $DOTFILES/antibody/zsh_plugins_msys.txt")
     ;;
   esac
-
-  source <($_antibody_path init)
 fi
 
 unset _antibody_path
+
+if which starship &>/dev/null; then
+  eval "$(starship init zsh)"
+fi
 
 autoload -Uz compinit
 compinit -i
@@ -119,7 +123,6 @@ if [ -f /usr/local/miniconda3/etc/profile.d/conda.sh ]; then
 fi
 
 if [ -f $DOTFILES/sh/bindkeys.zsh ]; then
-    unset RPS1 # delete oh-my-zsh vi-mode visualization
     source $DOTFILES/sh/bindkeys.zsh
 fi
 
@@ -129,10 +132,6 @@ fi
 
 if [ -f /home/glsorre/.local/bin/pipx ] || [ -f /usr/local/bin/pipx ]; then
     eval "$(register-python-argcomplete pipx)"
-fi
-
-if [ -f /home/glsorre/.local/bin/pipenv ] || [ -f /usr/local/bin/pipenv ]; then
-    export PIPENV_VERBOSITY=-1   
 fi
 
 if type brew &>/dev/null
