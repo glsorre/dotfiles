@@ -6,6 +6,4 @@ djui/alias-tips
 caarlos0/zsh-mkc
 Tarrasch/zsh-bd
 
-glsorre/minimal
-
 zdharma-continuum/fast-syntax-highlighting
