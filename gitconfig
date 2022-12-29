@@ -27,3 +27,7 @@
 	trustExitCode = true
 [pull]
 	ff = only
+[commit]
+	gpgsign = true
+[gpg]
+	format = ssh

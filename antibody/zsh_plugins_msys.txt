@@ -2,4 +2,8 @@ robbyrussell/oh-my-zsh
 
 zsh-users/zsh-completions
 
+djui/alias-tips
 caarlos0/zsh-mkc
+Tarrasch/zsh-bd
+
+zdharma-continuum/fast-syntax-highlighting

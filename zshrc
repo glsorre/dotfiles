@@ -41,7 +41,8 @@ case `uname` in
     export GPG_TTY=$(tty)
   ;;
   MINGW64*|MINGW32*|MSYS_NT*)
-    test -f $DOTFILES/winconf/sshagent.sh &&  source $DOTFILES/winconf/sshagent.sh
+    test -S `cygpath "$USERPROFILE"/OmniSSHCygwin.sock` && export SSH_AUTH_SOCK=`cygpath "$USERPROFILE"/OmniSSHCygwin.sock`
+  ;;
 esac
 
 if [ -f /opt/homebrew/bin/antibody ]; then
@@ -145,6 +146,3 @@ then
 fi
 
 export FZF_DEFAULT_OPTS="--color light --preview 'bat {}' --inline-info"
-
-
-
