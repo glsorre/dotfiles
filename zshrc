@@ -56,6 +56,8 @@ if [ -f $HOME/bin/antibody ]; then
   _antibody_path=$HOME/bin/antibody
 fi
 
+test -f $HOME/omni-socat/ubuntu-bash-setup.sh && source $HOME/omni-socat/ubuntu-bash-setup.sh
+
 runonce -i 1440 ${DOTFILES}/bin/dotfiles.update $_antibody_path
 
 if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
@@ -143,3 +145,6 @@ then
 fi
 
 export FZF_DEFAULT_OPTS="--color light --preview 'bat {}' --inline-info"
+
+
+
