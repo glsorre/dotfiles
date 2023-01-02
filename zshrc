@@ -71,6 +71,7 @@ if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
   python
   pip
   pyenv
+  poetry
   npm
   yarn
   nvm

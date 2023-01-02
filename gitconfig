@@ -27,7 +27,10 @@
 	trustExitCode = true
 [pull]
 	ff = only
-[commit]
-	gpgsign = true
 [gpg]
-	format = ssh
+  format = ssh
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+[commit]
+  gpgsign = true
+
