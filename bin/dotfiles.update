@@ -1,3 +1,2 @@
 #!/bin/bash
 git -C $DOTFILES pull
-$1 update

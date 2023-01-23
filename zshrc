@@ -45,25 +45,21 @@ case `uname` in
   ;;
 esac
 
-if [ -f /opt/homebrew/bin/antibody ]; then
-  _antibody_path=/opt/homebrew/bin/antibody
+if [ -f /opt/homebrew/opt/antidote/share/antidote/antidote.zsh ]; then
+  source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
 fi
 
-if [ -f /usr/local/bin/antibody ]; then
-  _antibody_path=/usr/local/bin/antibody
-fi
-
-if [ -f $HOME/bin/antibody ]; then
-  _antibody_path=$HOME/bin/antibody
+if [ -f $HOME/.antidote/anditode.zsh ]; then
+  source $HOME/.antidote/antidote.zsh
 fi
 
 test -f $HOME/omni-socat/ubuntu-bash-setup.sh && source $HOME/omni-socat/ubuntu-bash-setup.sh
 
-runonce -i 1440 ${DOTFILES}/bin/dotfiles.update $_antibody_path
+runonce -i 1440 ${DOTFILES}/bin/dotfiles.update
 
-if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
+if which antidote &>/dev/null; then
   DISABLE_AUTO_UPDATE=true
-  ZSH=`$_antibody_path home`
+  ZSH=`antidote home`
   ZSH_THEME=""
   ZSH+="/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
   plugins=(
@@ -81,27 +77,21 @@ if [ -n "$_antibody_path" ] && [ -x $_antibody_path ]; then
   docker-compose
   tig
   flutter
+  vscode
   )
-
-  source <($_antibody_path init)
-
   case `uname` in
     Darwin)
       plugins+=(macos fzf)
-      source <(eval $_antibody_path "bundle < $DOTFILES/antibody/zsh_plugins_mac.txt")
     ;;
     Linux)
       plugins+=(sdk fzf)
-      source <(eval $_antibody_path "bundle < $DOTFILES/antibody/zsh_plugins_linux.txt")
     ;;
     MINGW64*|MINGW32*|MSYS_NT*)
       plugins+=()
-      source <(eval $_antibody_path "bundle < $DOTFILES/antibody/zsh_plugins_msys.txt")
     ;;
   esac
+  antidote load
 fi
-
-unset _antibody_path
 
 if which starship &>/dev/null; then
   eval "$(starship init zsh)"
@@ -124,6 +114,10 @@ fi
 
 if [ -f /usr/local/miniconda3/etc/profile.d/conda.sh ]; then
     source /usr/local/miniconda3/etc/profile.d/conda.sh
+fi
+
+if [ -f /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code ]; then
+    export PATH=/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin:$PATH
 fi
 
 if [ -f $DOTFILES/sh/bindkeys.zsh ]; then
