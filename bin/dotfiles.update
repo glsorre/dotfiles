@@ -1,2 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 git -C $DOTFILES pull
+autoload -Uz $1/functions/antidote
+antidote update -b

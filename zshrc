@@ -45,17 +45,19 @@ case `uname` in
   ;;
 esac
 
-if [ -f /opt/homebrew/opt/antidote/share/antidote/antidote.zsh ]; then
-  source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
+if [ -f /opt/homebrew/share/antidote/antidote.zsh ]; then
+  source /opt/homebrew/share/antidote/antidote.zsh
+  _antidote_dir=/opt/homebrew/share/antidote
 fi
 
 if [ -f $HOME/.antidote/anditode.zsh ]; then
   source $HOME/.antidote/antidote.zsh
+  _antidote_dir=$HOME/.antidote
 fi
 
 test -f $HOME/omni-socat/ubuntu-bash-setup.sh && source $HOME/omni-socat/ubuntu-bash-setup.sh
 
-runonce -i 1440 ${DOTFILES}/bin/dotfiles.update
+runonce -i 1440 ${DOTFILES}/bin/dotfiles.update $_antidote_dir
 
 if which antidote &>/dev/null; then
   DISABLE_AUTO_UPDATE=true
