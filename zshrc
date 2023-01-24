@@ -42,6 +42,7 @@ case `uname` in
   ;;
   MINGW64*|MINGW32*|MSYS_NT*)
     test -S `cygpath "$USERPROFILE"/OmniSSHCygwin.sock` && export SSH_AUTH_SOCK=`cygpath "$USERPROFILE"/OmniSSHCygwin.sock`
+    export FZF_BASE=/ucrt64/share/fzf
   ;;
 esac
 
@@ -50,7 +51,7 @@ if [ -f /opt/homebrew/share/antidote/antidote.zsh ]; then
   _antidote_dir=/opt/homebrew/share/antidote
 fi
 
-if [ -f $HOME/.antidote/anditode.zsh ]; then
+if [ -f $HOME/.antidote/antidote.zsh ]; then
   source $HOME/.antidote/antidote.zsh
   _antidote_dir=$HOME/.antidote
 fi
@@ -80,13 +81,14 @@ if which antidote &>/dev/null; then
   tig
   flutter
   vscode
+  fzf
   )
   case `uname` in
     Darwin)
-      plugins+=(macos fzf)
+      plugins+=(macos)
     ;;
     Linux)
-      plugins+=(sdk fzf)
+      plugins+=()
     ;;
     MINGW64*|MINGW32*|MSYS_NT*)
       plugins+=()
