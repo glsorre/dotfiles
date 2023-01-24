@@ -7,7 +7,7 @@ export PAGER='less'
 
 setopt PROMPT_SUBST
 
-export PATH=$HOME/bin:$HOME/.bin:$HOME/.local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.bin:$HOME/.local/bin:/usr/local/bin:$PATH
 export MANPATH="/usr/local/man:$MANPATH"
 
 export LANG=en_US.UTF-8
