@@ -2,7 +2,7 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export ZSH_PYENV_QUIET=true
 export DOTFILES=$HOME/.dotfiles
 export EDITOR='vim'
-export VISUAL='vim'
+export VISUAL='code -w'
 export PAGER='less'
 
 setopt PROMPT_SUBST
