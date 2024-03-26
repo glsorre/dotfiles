@@ -28,10 +28,11 @@
 [pull]
 	ff = only
 [gpg]
-  format = ssh
+	format = ssh
 [gpg "ssh"]
-  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-  defaultKeyCommand = ssh-add -L
+	program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+	defaultKeyCommand = ssh-add -L
 [commit]
-  gpgsign = true
-
+	gpgsign = true
+[rebase]
+    autosquash = true
