@@ -29,8 +29,8 @@ case `uname` in
   ;;
 esac
 
-if (( $+commands[exa] )); then
-  exa_params=('--icons' '--classify' '--group-directories-first' '--time-style=long-iso' '--group')
+if (( $+commands[eza] )); then
+  eza_params=('--icons' '--classify' '--group-directories-first' '--time-style=long-iso' '--group')
 
   unalias ls
   unalias l
@@ -38,18 +38,18 @@ if (( $+commands[exa] )); then
   unalias ll
   
   function ls(){
-    exa "${exa_params[@]}" $@
+    eza "${eza_params[@]}" $@
   }
   
   function l(){
-    exa -la --grid "${exa_params[@]}" $@
+    eza -la --grid "${exa_params[@]}" $@
   }
   
   function la(){
-    exa -a "${exa_params[@]}" $@
+    eza -a "${eza_params[@]}" $@
   }
   
   function ll(){
-    exa -la --git-ignore --grid "${exa_params[@]}" $@
+    eza -la --git-ignore --grid "${eza_params[@]}" $@
   }
 fi
