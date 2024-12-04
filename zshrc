@@ -23,8 +23,8 @@ case `uname` in
     eval `dircolors $DOTFILES/sh/dir_colors`
 
     if [ -n "$DESKTOP_SESSION" ];then
-      	eval $(gnome-keyring-daemon --start)
-	      export SSH_AUTH_SOCK
+      eval $(gnome-keyring-daemon --start)
+      export SSH_AUTH_SOCK
     fi
     test -f /usr/bin/keychain && eval $(/usr/bin/keychain --eval --quiet id_rsa)
 
@@ -35,7 +35,7 @@ case `uname` in
     umask 002
     
     if [ -f  $HOME/.sdkman/bin/sdkman-init.sh ]; then
-	    source "$HOME/.sdkman/bin/sdkman-init.sh"
+      source "$HOME/.sdkman/bin/sdkman-init.sh"
     fi
 
     export GPG_TTY=$(tty)
@@ -69,17 +69,14 @@ if which antidote &>/dev/null; then
   brew
   python
   pip
-  pyenv
   poetry
   npm
-  yarn
   nvm
   git
+  gh
   aws
   docker
   docker-compose
-  tig
-  flutter
   vscode
   fzf
   )
