@@ -14,6 +14,12 @@ export LC_ALL=en_US.UTF-8
 case `uname` in
   Darwin)
     test -e $HOME/.iterm2_shell_integration.zsh && source $HOME/.iterm2_shell_integration.zsh || true
+
+    if [ -L /opt/homebrew/opt/pyenv/bin/pyenv ] && [ -e /opt/homebrew/opt/pyenv/bin/pyenv ]; then
+      export PYENV_ROOT="$HOME/.pyenv"
+      export PATH="$PYENV_ROOT/bin:$PATH"
+      eval "$(/opt/homebrew/opt/pyenv/bin/pyenv init --path)"
+    fi
   ;;
   Linux)
     test -d /home/linuxbrew/.linuxbrew && PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
@@ -66,6 +72,7 @@ if which antidote &>/dev/null; then
   plugins=(
   brew
   python
+  pyenv
   pip
   poetry
   npm
