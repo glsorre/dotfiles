@@ -1,4 +1,11 @@
 #!/bin/zsh
-git -C $DOTFILES pull
+case `uname` in
+  Darwin|Linux)
+    git -C $DOTFILES pull
+  ;;
+  MINGW64*|MINGW32*|MSYS_NT*)
+    git -C `cygpath "$DOTFILES"` pull
+  ;;
+esac
 autoload -Uz $1/functions/antidote
 antidote update -b

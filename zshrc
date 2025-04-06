@@ -14,12 +14,6 @@ export LC_ALL=en_US.UTF-8
 case `uname` in
   Darwin)
     test -e $HOME/.iterm2_shell_integration.zsh && source $HOME/.iterm2_shell_integration.zsh || true
-
-    if [ -L /opt/homebrew/opt/pyenv/bin/pyenv ] && [ -e /opt/homebrew/opt/pyenv/bin/pyenv ]; then
-      export PYENV_ROOT="$HOME/.pyenv"
-      export PATH="$PYENV_ROOT/bin:$PATH"
-      eval "$(/opt/homebrew/opt/pyenv/bin/pyenv init --path)"
-    fi
   ;;
   Linux)
     test -d /home/linuxbrew/.linuxbrew && PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
@@ -45,6 +39,7 @@ case `uname` in
     export GPG_TTY=$(tty)
   ;;
   MINGW64*|MINGW32*|MSYS_NT*)
+    echo prova
     test -S `cygpath "$USERPROFILE"/OmniSSHCygwin.sock` && export SSH_AUTH_SOCK=`cygpath "$USERPROFILE"/OmniSSHCygwin.sock`
     export FZF_BASE=/ucrt64/share/fzf
   ;;
@@ -70,9 +65,7 @@ if which antidote &>/dev/null; then
   ZSH_THEME=""
   ZSH+="/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
   plugins=(
-  brew
   python
-  pyenv
   pip
   poetry
   npm
@@ -87,10 +80,15 @@ if which antidote &>/dev/null; then
   )
   case `uname` in
     Darwin)
-      plugins+=(macos)
+      plugins+=(
+        brew
+        macos
+      )
     ;;
     Linux)
-      plugins+=()
+      plugins+=(
+        brew
+      )
     ;;
     MINGW64*|MINGW32*|MSYS_NT*)
       plugins+=()
