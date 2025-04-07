@@ -65,30 +65,28 @@ if which antidote &>/dev/null; then
   ZSH_THEME=""
   ZSH+="/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
   plugins=(
-  python
-  pip
-  poetry
-  npm
-  nvm
-  git
-  gh
-  aws
-  docker
-  docker-compose
-  vscode
-  fzf
+    brew
+    python
+    pip
+    poetry
+    npm
+    nvm
+    git
+    gh
+    aws
+    docker
+    docker-compose
+    vscode
+    fzf
   )
   case `uname` in
     Darwin)
       plugins+=(
-        brew
         macos
       )
     ;;
     Linux)
-      plugins+=(
-        brew
-      )
+      plugins+=()
     ;;
     MINGW64*|MINGW32*|MSYS_NT*)
       plugins+=()
