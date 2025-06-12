@@ -19,18 +19,7 @@ case `uname` in
     test -d /home/linuxbrew/.linuxbrew && PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
     test -d /opt/bin && PATH="/opt/bin:$PATH"
     eval `dircolors $DOTFILES/sh/dir_colors`
-
-    if [ -n "$DESKTOP_SESSION" ];then
-      eval $(gnome-keyring-daemon --start)
-      export SSH_AUTH_SOCK
-    fi
-    test -f /usr/bin/keychain && eval $(/usr/bin/keychain --eval --quiet id_rsa)
-
-    if [ $TILIX_ID ]; then
-        source /etc/profile.d/vte.sh
-    fi
-    
-    umask 002
+    export SSH_AUTH_SOCK=~/.1password/agent.sock    
     
     if [ -f  $HOME/.sdkman/bin/sdkman-init.sh ]; then
       source "$HOME/.sdkman/bin/sdkman-init.sh"

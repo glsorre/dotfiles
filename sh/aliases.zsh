@@ -21,7 +21,7 @@ case `uname` in
     if grep -q microsoft /proc/version; then
       alias f="explorer.exe ."
     else
-      alias f="nohup nautilus . > /dev/null 2>&1 &"
+      alias f="nohup nemo . > /dev/null 2>&1 &"
     fi
   ;;
   MINGW64*|MINGW32*|MSYS_NT*)
