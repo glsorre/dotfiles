@@ -1,38 +1,3 @@
-[filter "lfs"]
-	smudge = git-lfs smudge -- %f
-	required = true
-	clean = git-lfs clean -- %f
-	process = git-lfs filter-process
 [user]
 	name = Giuseppe Sorrentino
 	email = uhpnou@gmail.com
-[url "https://"]
-	insteadOf = git://
-[push]
-	default = simple
-	followTags = true
-[diff]
-	tool = opendiff
-[difftool]
-	prompt = false
-[difftool "opendiff"]
-	cmd = /usr/bin/opendiff \"$LOCAL\" \"$REMOTE\" -merge \"$MERGED\" | cat
-[core]
-	excludesfile = ~/.gitignore_global
-[difftool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-[pull]
-	ff = only
-[gpg]
-	format = ssh
-[gpg "ssh"]
-	program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-	defaultKeyCommand = ssh-add -L
-[commit]
-	gpgsign = true
-[rebase]
-    autosquash = true
