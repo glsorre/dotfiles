@@ -1,4 +1,4 @@
-source /opt/homebrew/share/antidote/antidote.zsh
+source /usr/share/zsh-antidote/antidote.zsh
 antidote load ${ZDOTDIR:-$HOME}/repo/dotfiles/zsh_plugins.txt
 ### antidote.sh stop
 
