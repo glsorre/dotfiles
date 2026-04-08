@@ -1,14 +1,23 @@
-source /usr/share/zsh-antidote/antidote.zsh
-antidote load ${ZDOTDIR:-$HOME}/repo/dotfiles/zsh_plugins.txt
-### antidote.sh stop
-
 zstyle ':omz:plugins:eza' 'icons' yes
+
+if [ -f /home/linuxbrew/.linuxbrew/bin/brew ]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)";
+fi
+
+if [ -f /usr/share/zsh-antidote/antidote.zsh ]; then
+    source /usr/share/zsh-antidote/antidote.zsh;
+    antidote load ${ZDOTDIR:-$HOME}/repo/dotfiles/zsh_plugins.txt
+elif [ -f /home/linuxbrew/.linuxbrew/opt/antidote/share/antidote/antidote.zsh ]; then
+    source  /home/linuxbrew/.linuxbrew/opt/antidote/share/antidote/antidote.zsh;
+    antidote load ${ZDOTDIR:-$HOME}/repo/dotfiles/zsh_plugins_minimal.txt;
+fi
+
 autoload -U compinit promptinit
 
 PATH=$HOME/bin:$PATH
 export VISUAL='code -w'
 export PAGER='less'
 
-
 export EDITOR=$(which nvim)
 alias vim="$EDITOR"
+alias open="open_command"

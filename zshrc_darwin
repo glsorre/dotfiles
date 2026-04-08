@@ -9,6 +9,5 @@ PATH=$HOME/bin:$PATH
 export VISUAL='code -w'
 export PAGER='less'
 
-
 export EDITOR=$(which nvim)
 alias vim="$EDITOR"
