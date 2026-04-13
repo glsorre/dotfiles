@@ -1,8 +1,9 @@
+zstyle ':omz:plugins:eza' 'icons' yes
+
 source /opt/homebrew/share/antidote/antidote.zsh
 antidote load ${ZDOTDIR:-$HOME}/repo/dotfiles/zsh_plugins.txt
 ### antidote.sh stop
 
-zstyle ':omz:plugins:eza' 'icons' yes
 autoload -U compinit promptinit
 
 PATH=$HOME/bin:$PATH
