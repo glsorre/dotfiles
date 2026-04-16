@@ -17,7 +17,10 @@ autoload -U compinit promptinit
 PATH=$HOME/bin:$PATH
 export VISUAL='code -w'
 export PAGER='less'
-
 export EDITOR=$(which nvim)
 alias vim="$EDITOR"
 alias open="open_command"
+
+if [ -f $HOME/.zshrc_local ]; then
+    source $HOME/.zshrc_local
+fi

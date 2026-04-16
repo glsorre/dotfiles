@@ -1,0 +1,19 @@
+[projects."/Users/glsorre/repo/dotfiles"]
+trust_level = "trusted"
+
+[profiles.cheap]
+model_provider = "openrouter"
+model="deepseek/deepseek-chat"
+
+[profiles.free]
+model_provider = "openrouter"
+model="qwen/qwen3-coder-480b:free"
+
+[model_providers.openrouter]
+name = "openrouter"
+base_url = "https://openrouter.ai/api/v1"
+env_key = "OPENROUTER_API_KEY"
+
+[mcp_servers.context7]
+url = "https://mcp.context7.com/mcp"
+env_http_headers = { "CONTEXT7_API_KEY" = "CONTEXT7_API_KEY" }
