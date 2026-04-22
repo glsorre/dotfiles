@@ -4,7 +4,6 @@
     "bash": {
       "*.env": "deny",
       "*.env.*": "deny"
-
     },
     "read": {
       "*.env": "deny",
@@ -22,6 +21,14 @@
       "headers": {
         "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
       },
+      "enabled": true
+    },
+    "icm": {
+      "type": "local",
+      "command": [
+        "/opt/homebrew/bin/icm",
+        "serve"
+      ],
       "enabled": true
     }
   }
