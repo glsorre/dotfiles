@@ -4,7 +4,10 @@ if [ -f /home/linuxbrew/.linuxbrew/bin/brew ]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)";
 fi
 
-if [ -f /usr/share/zsh-antidote/antidote.zsh ]; then
+if [ -f $HOME/.antidote/antidote.zsh ]; then
+    source $HOME/.antidote/antidote.zsh
+    antidote load ${ZDOTDIR:-$HOME}/repo/dotfiles/zsh_plugins.txt
+elif [ -f /usr/share/zsh-antidote/antidote.zsh ]; then
     source /usr/share/zsh-antidote/antidote.zsh;
     antidote load ${ZDOTDIR:-$HOME}/repo/dotfiles/zsh_plugins.txt
 elif [ -f /home/linuxbrew/.linuxbrew/opt/antidote/share/antidote/antidote.zsh ]; then
@@ -14,7 +17,7 @@ fi
 
 autoload -U compinit promptinit
 
-PATH=$HOME/bin:$PATH
+PATH=$HOME/bin:$HOME/.local/bin:$PATH
 export VISUAL='code -w'
 export PAGER='less'
 export EDITOR=$(which nvim)
